@@ -1,6 +1,6 @@
 R&D Researcher at Sansan, Inc.
 
-  [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat-square&logo=github)](https://github.com/loem-ms)
+  [![Google Scholar](https://img.shields.io/badge/Google%20Scholar-%2320beff?color=1f1f18&logo=google-scholar&style=flat-square)](https://scholar.google.com/citations?user=EoYd7EEAAAAJ&hl=en)
   [![Twitter](https://img.shields.io/badge/-X-black?style=flat-square&logo=X)](https://twitter.com/loem_ms)
   [![Email](https://img.shields.io/badge/-Email-black?style=flat-square&logo=gmail&logoColor=white)](mailto:mengsaylms@gmail.com)
 
