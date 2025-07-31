@@ -39,6 +39,7 @@ Vision/Language Model, Low-resource Languages, Educational Application
 * <u>Mengsay Loem</u>, David Taingngin, Chan Oeurn Chey, Meak Kamerane. A Design of Low Cost and High-Performance Speed Detector Combining Digital Camera and Photo-resistive Sensor to Contribute to Traffic Accidents Reduction in Cambodia. Youth Innovation for Sustainability, SEAMEO Recsam, 2016.
 
 ### Pre-print
+* Ahmed Sabir, Azinovič Gasper, <u>Mengsay Loem</u>, Rajesh Sharma. Contrasting Cognitive Styles in Vision-Language Models: Holistic Attention in Japanese Versus Analytical Focus in English. arXiv, 2025. [[paper](https://arxiv.org/abs/2507.00700)]
 * <u>Mengsay Loem</u>, Sho Takase, Masahiro Kaneko, Naoaki Okazaki. Are Neighbors Enough? Multi-Head Neural n-gram can be Alternative to Self-attention. arXiv, 2022. [[paper](https://arxiv.org/abs/2207.13354)]
 
 ### Domestic Conference and Symposium (in Japanese)
