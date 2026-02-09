@@ -26,7 +26,7 @@ Vision/Language Model, Low-resource Languages, Educational Application
 # Publications
 
 ### Journal
-* 大井 聖也, 金子 正弘, 小池 隆斗, <u>Mengsay Loem</u>, and 岡崎 直観. 大規模言語モデルにおける評価バイアスの尤度に基づく緩和. 自然言語処理, 32(2):to appear, July 2025.
+* 大井 聖也, 金子 正弘, 小池 隆斗, <u>Mengsay Loem</u>, and 岡崎 直観. 大規模言語モデルにおける評価バイアスの尤度に基づく緩和. 自然言語処理, 32(2): 480-496, June 2025. [[paper](https://www.jstage.jst.go.jp/article/jnlp/32/2/32_480/_article/-char/ja/)]
 * <u>Mengsay Loem</u>, Sho Takase, Masahiro Kaneko, Naoaki Okazaki, ExtraPhrase: Efficient Data Augmentation for Abstractive Summarization, Journal of Natural Language Processing, 2023, Volume 30, Issue 2, Pages 489-506. [[paper](https://www.jstage.jst.go.jp/article/jnlp/30/2/30_489/_article/-char/en)]
 
 ### (Refereed) International Conference and Workshop Papers
