@@ -5,7 +5,7 @@ R&D Researcher at Sansan, Inc.
   [![Email](https://img.shields.io/badge/-Email-black?style=flat-square&logo=gmail&logoColor=white)](mailto:mengsaylms@gmail.com)
 
 # Research Interest
-Vision/Language Model, Low-resource Languages, Educational Application
+Vision Language Model, Information Extraction, Low-Resource Languages, Linguistics
 
 
 # Work Experience
@@ -26,11 +26,11 @@ Vision/Language Model, Low-resource Languages, Educational Application
 # Publications
 
 ### Journal
-* 大井 聖也, 金子 正弘, 小池 隆斗, <u>Mengsay Loem</u>, and 岡崎 直観. 大規模言語モデルにおける評価バイアスの尤度に基づく緩和. 自然言語処理, 32(2): 480-496, June 2025. [[paper](https://www.jstage.jst.go.jp/article/jnlp/32/2/32_480/_article/-char/ja/)]
-* <u>Mengsay Loem</u>, Sho Takase, Masahiro Kaneko, Naoaki Okazaki, ExtraPhrase: Efficient Data Augmentation for Abstractive Summarization, Journal of Natural Language Processing, 2023, Volume 30, Issue 2, Pages 489-506. [[paper](https://www.jstage.jst.go.jp/article/jnlp/30/2/30_489/_article/-char/en)]
+* Masanari Ohi, Masahiro Kaneko, Ryuto Koike, <u>Mengsay Loem</u>, and Naoaki Okazaki. Likelihood-based Mitigation of Evaluation Bias in Large Language Models. Journal of Natural Language Processing, 2025, 2025 Volume 32 Issue 2 Pages 480-496. [[paper](https://www.jstage.jst.go.jp/article/jnlp/32/2/32_480/_article/-char/en/)]
+* <u>Mengsay Loem</u>, Sho Takase, Masahiro Kaneko, Naoaki Okazaki, ExtraPhrase: Efficient Data Augmentation for Abstractive Summarization. Journal of Natural Language Processing, 2023, Volume 30, Issue 2, Pages 489-506. [[paper](https://www.jstage.jst.go.jp/article/jnlp/30/2/30_489/_article/-char/en)]
 
 ### (Refereed) International Conference and Workshop Papers
-* Naoaki Okazaki, Kakeru Hattori, Hirai Shota, Hiroki Iida, Masanari Ohi, Kazuki Fujii, Taishi Nakamura, <u>Mengsay Loem</u>, Rio Yokota, and Sakae Mizuki. Building a Large Japanese Web Corpus for Large Language Models. In Proceedings of the First Conference on Language Modeling (COLM), pages (to appear), University of Pennsylvania, USA, October 2024.
+* Naoaki Okazaki, Kakeru Hattori, Hirai Shota, Hiroki Iida, Masanari Ohi, Kazuki Fujii, Taishi Nakamura, <u>Mengsay Loem</u>, Rio Yokota, and Sakae Mizuki. Building a Large Japanese Web Corpus for Large Language Models. In Proceedings of the First Conference on Language Modeling (COLM), University of Pennsylvania, USA, October 2024.
 * Kazuki Fujii, Taishi Nakamura, <u>Mengsay Loem</u>, Hiroki Iida, Masanari Ohi, Kakeru Hattori, Hirai Shota, Sakae Mizuki, Rio Yokota, and Naoaki Okazaki. Continual Pre-Training for Cross-Lingual LLM Adaptation: Enhancing Japanese Language Capabilities. In Proceedings of the First Conference on Language Modeling (COLM), pages (to appear), University of Pennsylvania, USA, October 2024.
 * <u>Mengsay Loem</u>, Masahiro Kaneko, and Naoaki Okazaki. 2024. SAIE Framework: Support Alone Isn’t Enough - Advancing LLM Training with Adversarial Remarks. In Proceedings of the 27th European Conference on Artificial Intelligence (ECAI-2024), pp (to appear), Santiago de Compostela, Spain. [[arXiv](https://arxiv.org/abs/2311.08107)]
 * Masanari Ohi, Masahiro Kaneko, Ryuto Koike, <u>Mengsay Loem</u>, Naoaki Okazaki. Likelihood-based Mitigation of Evaluation Bias in Large Language Models. The 62nd Annual Meeting of the Association for Computational Linguistics (Findings: ACL). [[arXiv](https://arxiv.org/abs/2402.15987)]
