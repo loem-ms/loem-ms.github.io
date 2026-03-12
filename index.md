@@ -43,6 +43,8 @@ Vision Language Model, Information Extraction, Low-Resource Languages, Linguisti
 * <u>Mengsay Loem</u>, Sho Takase, Masahiro Kaneko, Naoaki Okazaki. Are Neighbors Enough? Multi-Head Neural n-gram can be Alternative to Self-attention. arXiv, 2022. [[paper](https://arxiv.org/abs/2207.13354)]
 
 ### Domestic Conference and Symposium (in Japanese)
+* 佐藤 勇元, <u>Mengsay Loem</u>. 因果追跡に基づくVLMのモジュール重要度推定とLoRA適用先選択の検証. 言語処理学会第32回年次大会 (NLP2026), pp. 1531-1536, 2026年3月. [[paper](https://www.anlp.jp/proceedings/annual_meeting/2026/pdf_dir/B4-8.pdf)]
+* <u>Mengsay Loem</u>, 橋本 航. いつ考え，いつ即答するか。文書理解視覚言語モデルにおける推論ルーティングの評価. 言語処理学会第32回年次大会 (NLP2026), pp. 1226-1231, 2026年3月. [[paper](https://www.anlp.jp/proceedings/annual_meeting/2026/pdf_dir/C3-5.pdf)]
 * <u>Mengsay Loem</u>, 保坂 大樹. 視覚的質問応答による文書情報抽出における同時多項目推論. 言語処理学会第31回年次大会 (NLP2025), pp. 4227-4231, 2025年3月. [[paper](https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/Q10-9.pdf)]
 * <u>Mengsay Loem</u>, 金子 正弘, 岡崎 直観. 敵対的発言を取り入れた議論による言語モデルの学習強化と推論力の向上. 言語処理学会第30回年次大会 (NLP2024), pp. 2750–2755, 2024年3月. [[paper]](https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/B10-6.pdf)
 * 大井 聖也, 金子 正弘, 小池 隆斗, <u>Mengsay Loem</u>, 岡崎 直観. 大規模言語モデルにおける評価バイアスの尤度に基づく緩和. 言語処理学会第30回年次大会 (NLP2024), pp. 3021–3026, 2024年3月.  [[paper]](https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A11-4.pdf)
@@ -61,6 +63,7 @@ Vision Language Model, Information Extraction, Low-Resource Languages, Linguisti
 * Deep Learning based Natural Language Processing. Invited Talk at Natural Language Processing Webinar by [Forum for Pushing the Boundary](https://www.facebook.com/fpbcambodia/), December 2021. [[slide](https://drive.google.com/file/d/1GX9-XcOJOy-r5hzif5UkmXulaD6GrQk-/view?usp=sharing)]
 
 # Awards and Participations
+* Best Journal Paper Award ([[Paper]](https://www.jstage.jst.go.jp/article/jnlp/32/2/32_480/_article/-char/en)) in The 32nd Annual Meeting of the Association for Natural Language Processing  (Japan, 2026)
 * [Language Resources Award](https://anlp.jp/nlp2025/award.html#:~:text=%E5%88%A4%E6%96%AD%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%8E-,%E8%A8%80%E8%AA%9E%E8%B3%87%E6%BA%90%E8%B3%9E%EF%BC%88%E5%AF%BE%E8%B1%A1%E8%A8%80%E8%AA%9E%E8%B3%87%E6%BA%9042%E4%BB%B6%E4%B8%AD1%E4%BB%B6%EF%BC%89,-Swallow%20LLM) at the 31st Annual Meeting of the Association of Natural Language Processing (NLP2025), [Swallow LLM](https://swallow-llm.github.io/) (Japan, 2025)
 * Young Researcher’s Encouragement Award ([[Paper]](https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/B10-6.pdf)) in The 30th Annual Meeting of the Association for Natural Language Processing  (Japan, 2024)
 * Best Paper Awards ([[Paper-1]](https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A6-1.pdf), [[Paper-2]](https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A8-5.pdf)) in The 30th Annual Meeting of the Association for Natural Language Processing  (Japan, 2024)
