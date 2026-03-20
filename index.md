@@ -41,6 +41,7 @@ Vision Language Model, Document Understanding, Document AI, LLM Reasoning, LLM T
 * <u>Mengsay Loem</u>, 高瀬 翔, 金子 正弘, 岡崎 直観. 抽出型要約と言い換えによる生成型要約の訓練データ拡張. 言語処理学会第28回年次大会 (NLP2022), pp. 1996–2001, 2022年3月. [[paper]](https://www.anlp.jp/proceedings/annual_meeting/2022/pdf_dir/D8-3.pdf)
 
 # Talks
+* VLMで帳票の情報抽出を前進させた話. Kyoto AI Meetup #1, February 2025.
 * Enhancing LLMs with Interactive Feedback: Advancing Learning and Reasoning. Tokyo AI - Advanced AI #3, August 2024. [[slide](https://www.slideshare.net/slideshow/enhancingllmswithinteractivefeedback-tai-aai-pdf/270851735)] 
 * A Journey of Generative Model. Invited Talk at AI Webinar by [Forum for Pushing the Boundary](https://www.facebook.com/fpbcambodia/), July 2024. [[note](https://loem-ms.github.io/generative-model)]
 * Showcasing Experiences in a Master’s Education in Computer Science. Panel Discussion at TechTalk Throwdown by [Cambodian Student Association in the United States of America](https://www.csainusa.com). January 2024. [[note](https://speakerdeck.com/mengsay/showcasing-experiences-in-a-masters-education-in-computer-science)]
