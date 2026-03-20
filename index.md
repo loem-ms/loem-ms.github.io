@@ -5,22 +5,7 @@ R&D Researcher at Sansan, Inc.
   [![Email](https://img.shields.io/badge/-Email-black?style=flat-square&logo=gmail&logoColor=white)](mailto:mengsaylms@gmail.com)
 
 # Research Interest
-Vision Language Model, Information Extraction, Low-Resource Languages, Linguistics
-
-
-# Work Experience
-- Apr 2024 - Present&emsp; Researcher at Sansan, Inc.
-- Aug 2023 - Mar 2024&emsp; Member of [TokyoTech-LLM](https://tokyotech-llm.github.io/)
-- Dec 2021 - Mar 2024&emsp; Research Assistant at Tokyo Institute of Technology
-- Jan 2023 - Dec 2023&emsp; Chair of IT Committee at Cambodian Students' Association in Japan
-- Nov 2020 - Aug 2023&emsp; Part-time Technical Staff at Novitas, Inc. 
-- Oct 2022 - Dec 2022&emsp; Teaching Assistant at Tokyo Institute of Technology
-
-
-# Education
-- Apr 2022 - Mar 2024 &emsp; Master of Engineering in Artificial Intelligence, [Tokyo Institute of Technology](https://www.titech.ac.jp/english) ([Okazaki Laboratory](https://www.nlp.c.titech.ac.jp/index.en.html))
-- Apr 2020 - Mar 2022 &emsp; Bachelor of Engineering in Computer Science, Tokyo Institute of Technology
-- Apr 2017 - Mar 2020 &emsp; Associate of Engineering in Information Engineering, National Institute of Technology, Kagoshima College
+Vision Language Model, Document Understanding, Document AI, LLM Reasoning, LLM Training and Evaluation
 
   
 # Publications
@@ -76,3 +61,18 @@ Vision Language Model, Information Extraction, Low-Resource Languages, Linguisti
 * 56th International Mathematical Olympiad Participation (Thailand, 2015)
 * Gold Medal in Cambodian National Mathematical Olympiad (Cambodia, 2015)
 
+
+
+# Work Experience
+- Apr 2024 - Present&emsp; Researcher at Sansan, Inc.
+- Aug 2023 - Mar 2024&emsp; Member of [TokyoTech-LLM](https://tokyotech-llm.github.io/)
+- Dec 2021 - Mar 2024&emsp; Research Assistant at Tokyo Institute of Technology
+- Jan 2023 - Dec 2023&emsp; Chair of IT Committee at Cambodian Students' Association in Japan
+- Nov 2020 - Aug 2023&emsp; Part-time Technical Staff at Novitas, Inc. 
+- Oct 2022 - Dec 2022&emsp; Teaching Assistant at Tokyo Institute of Technology
+
+
+# Education
+- Apr 2022 - Mar 2024 &emsp; Master of Engineering in Artificial Intelligence, [Tokyo Institute of Technology](https://www.titech.ac.jp/english) ([Okazaki Laboratory](https://www.nlp.c.titech.ac.jp/index.en.html))
+- Apr 2020 - Mar 2022 &emsp; Bachelor of Engineering in Computer Science, Tokyo Institute of Technology
+- Apr 2017 - Mar 2020 &emsp; Associate of Engineering in Information Engineering, National Institute of Technology, Kagoshima College
