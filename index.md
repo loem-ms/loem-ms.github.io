@@ -11,7 +11,7 @@ Vision Language Model, Document Understanding, Document AI, LLM Reasoning, LLM T
 # Publications
 
 ### Journal
-* Masanari Ohi, Masahiro Kaneko, Ryuto Koike, <u>Mengsay Loem</u>, and Naoaki Okazaki. Likelihood-based Mitigation of Evaluation Bias in Large Language Models. Journal of Natural Language Processing, 2025, 2025 Volume 32 Issue 2 Pages 480-496. [[paper](https://www.jstage.jst.go.jp/article/jnlp/32/2/32_480/_article/-char/en/)]
+* Masanari Ohi, Masahiro Kaneko, Ryuto Koike, <u>Mengsay Loem</u>, and Naoaki Okazaki. Likelihood-based Mitigation of Evaluation Bias in Large Language Models. Journal of Natural Language Processing, 2025, Volume 32 Issue 2 Pages 480-496. [[paper](https://www.jstage.jst.go.jp/article/jnlp/32/2/32_480/_article/-char/en/)]
 * <u>Mengsay Loem</u>, Sho Takase, Masahiro Kaneko, Naoaki Okazaki, ExtraPhrase: Efficient Data Augmentation for Abstractive Summarization. Journal of Natural Language Processing, 2023, Volume 30, Issue 2, Pages 489-506. [[paper](https://www.jstage.jst.go.jp/article/jnlp/30/2/30_489/_article/-char/en)]
 
 ### (Refereed) International Conference and Workshop Papers
@@ -41,7 +41,7 @@ Vision Language Model, Document Understanding, Document AI, LLM Reasoning, LLM T
 * <u>Mengsay Loem</u>, 高瀬 翔, 金子 正弘, 岡崎 直観. 抽出型要約と言い換えによる生成型要約の訓練データ拡張. 言語処理学会第28回年次大会 (NLP2022), pp. 1996–2001, 2022年3月. [[paper]](https://www.anlp.jp/proceedings/annual_meeting/2022/pdf_dir/D8-3.pdf)
 
 # Talks
-* VLMで帳票の情報抽出を前進させた話. Kyoto AI Meetup #1, February 2025.
+* VLMで帳票の情報抽出を前進させた話. Kyoto AI Meetup #1, February 2026.
 * Enhancing LLMs with Interactive Feedback: Advancing Learning and Reasoning. Tokyo AI - Advanced AI #3, August 2024. [[slide](https://www.slideshare.net/slideshow/enhancingllmswithinteractivefeedback-tai-aai-pdf/270851735)] 
 * A Journey of Generative Model. Invited Talk at AI Webinar by [Forum for Pushing the Boundary](https://www.facebook.com/fpbcambodia/), July 2024. [[note](https://loem-ms.github.io/generative-model)]
 * Showcasing Experiences in a Master’s Education in Computer Science. Panel Discussion at TechTalk Throwdown by [Cambodian Student Association in the United States of America](https://www.csainusa.com). January 2024. [[note](https://speakerdeck.com/mengsay/showcasing-experiences-in-a-masters-education-in-computer-science)]
