@@ -1,11 +1,10 @@
-R&D Researcher at Sansan, Inc.
 
   [![Google Scholar](https://img.shields.io/badge/Google%20Scholar-%2320beff?color=1f1f18&logo=google-scholar&style=flat-square)](https://scholar.google.com/citations?user=EoYd7EEAAAAJ&hl=en)
   [![Twitter](https://img.shields.io/badge/-X-black?style=flat-square&logo=X)](https://twitter.com/loem_ms)
   [![Email](https://img.shields.io/badge/-Email-black?style=flat-square&logo=gmail&logoColor=white)](mailto:mengsaylms@gmail.com)
 
 # Research Interest
-Vision Language Model, Document Understanding, Document AI, LLM Reasoning, LLM Training and Evaluation
+LLM/VLM, Evaluation, Low-Resource NLP
 
   
 # Publications
@@ -65,7 +64,7 @@ Vision Language Model, Document Understanding, Document AI, LLM Reasoning, LLM T
 
 
 # Work Experience
-- Apr 2024 - Present&emsp; Researcher at Sansan, Inc.
+- Apr 2024 - Jun 2026&emsp; Researcher at Sansan, Inc.
 - Aug 2023 - Mar 2024&emsp; Member of [TokyoTech-LLM](https://tokyotech-llm.github.io/)
 - Dec 2021 - Mar 2024&emsp; Research Assistant at Tokyo Institute of Technology
 - Jan 2023 - Dec 2023&emsp; Chair of IT Committee at Cambodian Students' Association in Japan
