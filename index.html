@@ -68,11 +68,27 @@
   .links a{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.02em;color:var(--accent);text-decoration:none;border:1px solid #e0ddd4;border-radius:5px;padding:2px 8px;transition:all .2s}
   .links a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
   footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--faint)}
-  @media(max-width:820px){
-    .wrap{flex-direction:column;gap:0;padding:0 24px}
-    aside{position:static;height:auto;width:100%;flex-basis:auto;padding:48px 0 24px}
+  /* tablet & down: single column, sidebar becomes a header */
+  @media(max-width:900px){
+    .wrap{flex-direction:column;gap:0;padding:0 32px}
+    aside{position:static;height:auto;width:100%;flex-basis:auto;padding:56px 0 8px}
     nav{display:none}
-    main{padding:24px 0 80px}
+    main{padding:28px 0 80px}
+    .intro{max-width:none}
+  }
+  /* phones: tighten type & stack each row's date above its content */
+  @media(max-width:600px){
+    .wrap{padding:0 20px}
+    aside{padding:40px 0 4px}
+    .name{font-size:29px}
+    .intro{font-size:17px}
+    .sec-head h2{font-size:22px}
+    section{margin-top:48px}
+    .tab{font-size:11px;padding:6px 11px}
+    .row{flex-direction:column;gap:4px;padding:12px}
+    .gutter,.gutter.wide,.gutter.xwide{flex:none;flex-basis:auto;padding-top:0}
+    .title{font-size:16px}
+    .links{margin-top:6px}
   }
 </style>
 </head>
