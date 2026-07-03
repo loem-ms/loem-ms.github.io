@@ -64,6 +64,7 @@ LLM/VLM, Evaluation, Low-Resource NLP
 
 
 # Work Experience
+- Jul 2026 - &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Engineer at Preferred Network, Inc.
 - Apr 2024 - Jun 2026&emsp; Researcher at Sansan, Inc.
 - Aug 2023 - Mar 2024&emsp; Member of [TokyoTech-LLM](https://tokyotech-llm.github.io/)
 - Dec 2021 - Mar 2024&emsp; Research Assistant at Tokyo Institute of Technology
