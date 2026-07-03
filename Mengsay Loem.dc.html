@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#fbfaf7"/><text x="50" y="46" font-family="Georgia, serif" font-size="30" font-weight="600" fill="#201f1c" text-anchor="middle">ML</text><rect x="34" y="58" width="32" height="3" fill="#2d5f8a"/></svg></template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  ::selection { background: #201f1c; color: #fbfaf7; }
+</style>
+</helmet>
+<div style="{{ rootStyle }}">
+<div style="min-height:100vh; background:#fbfaf7; color:#201f1c; font-family:'Instrument Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased; line-height:1.5;">
+  <div style="max-width:1120px; margin:0 auto; padding:0 40px; display:flex; gap:72px; align-items:flex-start;">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside style="width:300px; flex:0 0 300px; position:sticky; top:0; align-self:flex-start; height:100vh; padding:64px 0; display:flex; flex-direction:column;">
+      <div style="flex:1;">
+        <div style="font-family:var(--heading-font, 'Instrument Sans', sans-serif); font-size:34px; font-weight:600; letter-spacing:-0.02em; line-height:1.05; margin-bottom:14px;">Mengsay<br>Loem</div>
+        <div style="font-size:14px; color:#6b6862; margin-bottom:2px;">Engineer, Preferred Networks</div>
+        <div style="font-size:14px; color:#6b6862;">formerly Researcher, Sansan</div>
+
+        <div style="font-family:'Space Mono', monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:#a19d94; margin:32px 0 10px;">Research</div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="font-size:12.5px; padding:3px 9px; border:1px solid #e6e3dc; border-radius:100px; color:#3f3d38;">LLM / VLM</span>
+          <span style="font-size:12.5px; padding:3px 9px; border:1px solid #e6e3dc; border-radius:100px; color:#3f3d38;">Evaluation</span>
+          <span style="font-size:12.5px; padding:3px 9px; border:1px solid #e6e3dc; border-radius:100px; color:#3f3d38;">Low-Resource NLP</span>
+        </div>
+
+        <nav style="margin-top:36px; display:flex; flex-direction:column; gap:2px;">
+          <a href="#publications" style="font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.04em; color:#3f3d38; text-decoration:none; padding:5px 0; border-bottom:1px solid transparent; transition:color .2s, border-color .2s; width:fit-content;" style-hover="color:var(--accent,#2d5f8a); border-bottom:1px solid var(--accent,#2d5f8a);">Publications</a>
+          <a href="#talks" style="font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.04em; color:#3f3d38; text-decoration:none; padding:5px 0; border-bottom:1px solid transparent; transition:color .2s, border-color .2s; width:fit-content;" style-hover="color:var(--accent,#2d5f8a); border-bottom:1px solid var(--accent,#2d5f8a);">Talks</a>
+          <a href="#awards" style="font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.04em; color:#3f3d38; text-decoration:none; padding:5px 0; border-bottom:1px solid transparent; transition:color .2s, border-color .2s; width:fit-content;" style-hover="color:var(--accent,#2d5f8a); border-bottom:1px solid var(--accent,#2d5f8a);">Awards</a>
+          <a href="#experience" style="font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.04em; color:#3f3d38; text-decoration:none; padding:5px 0; border-bottom:1px solid transparent; transition:color .2s, border-color .2s; width:fit-content;" style-hover="color:var(--accent,#2d5f8a); border-bottom:1px solid var(--accent,#2d5f8a);">Experience</a>
+          <a href="#education" style="font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.04em; color:#3f3d38; text-decoration:none; padding:5px 0; border-bottom:1px solid transparent; transition:color .2s, border-color .2s; width:fit-content;" style-hover="color:var(--accent,#2d5f8a); border-bottom:1px solid var(--accent,#2d5f8a);">Education</a>
+        </nav>
+      </div>
+
+      <div style="display:flex; gap:8px; align-items:center; margin-top:28px;">
+        <a href="https://scholar.google.com/citations?user=EoYd7EEAAAAJ&hl=en" target="_blank" style="font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.04em; color:#6b6862; text-decoration:none; padding:6px 10px; border:1px solid #e6e3dc; border-radius:6px; transition:all .2s;" style-hover="color:var(--accent,#2d5f8a); border-color:var(--accent,#2d5f8a);">Scholar</a>
+        <a href="https://twitter.com/loem_ms" target="_blank" style="font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.04em; color:#6b6862; text-decoration:none; padding:6px 10px; border:1px solid #e6e3dc; border-radius:6px; transition:all .2s;" style-hover="color:var(--accent,#2d5f8a); border-color:var(--accent,#2d5f8a);">X</a>
+        <button onClick="{{ copyEmail }}" style="{{ emailBtnStyle }}" title="Copy email">{{ emailLabel }}</button>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <main style="flex:1; min-width:0; padding:64px 0 120px;">
+
+      <!-- intro -->
+      <p style="font-size:19px; line-height:1.6; color:#3f3d38; max-width:60ch; margin:0 0 8px; letter-spacing:-0.005em;">I build and study language and vision-language models — with a focus on how we <em style="font-style:normal; border-bottom:2px solid var(--accent,#2d5f8a); padding-bottom:1px;">evaluate</em> them, and how they hold up in <em style="font-style:normal; border-bottom:2px solid var(--accent,#2d5f8a); padding-bottom:1px;">low-resource</em> settings.</p>
+
+      <!-- PUBLICATIONS -->
+      <section id="publications" style="margin-top:64px; scroll-margin-top:48px;">
+        <div style="display:flex; align-items:baseline; gap:12px; border-bottom:1px solid #201f1c; padding-bottom:10px; margin-bottom:22px;">
+          <h2 style="font-family:var(--heading-font,'Instrument Sans',sans-serif); font-size:26px; font-weight:600; letter-spacing:-0.02em; margin:0;">Publications</h2>
+          <span style="font-family:'Space Mono', monospace; font-size:12px; color:#a19d94;">{{ pubCount }}</span>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px;">
+          <sc-for list="{{ tabs }}" as="tab" hint-placeholder-count="5">
+            <button onClick="{{ tab.onClick }}" style="{{ tab.style }}">{{ tab.label }}</button>
+          </sc-for>
+        </div>
+
+        <sc-for list="{{ visibleCategories }}" as="cat" hint-placeholder-count="4">
+          <div style="margin-bottom:36px;">
+            <div style="font-family:'Space Mono', monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#a19d94; margin-bottom:18px;">{{ cat.label }}</div>
+            <sc-for list="{{ cat.items }}" as="item" hint-placeholder-count="3">
+              <div style="display:flex; gap:20px; padding:14px 12px; margin:0 -12px; border-radius:8px; transition:background .2s;" style-hover="background:#f4f2ec;">
+                <div style="flex:0 0 46px; font-family:'Space Mono', monospace; font-size:12px; color:#a19d94; padding-top:2px;">{{ item.year }}</div>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-size:15.5px; font-weight:600; letter-spacing:-0.01em; line-height:1.4; margin-bottom:4px;">{{ item.title }}</div>
+                  <div style="font-size:13.5px; color:#6b6862; line-height:1.5; margin-bottom:5px;"><sc-for list="{{ item.parts }}" as="part" hint-placeholder-count="3"><sc-if value="{{ part.me }}" hint-placeholder-val="{{ false }}"><span style="color:#201f1c; font-weight:600;">{{ part.text }}</span></sc-if><sc-if value="{{ part.plain }}" hint-placeholder-val="{{ true }}">{{ part.text }}</sc-if></sc-for></div>
+                  <div style="font-size:13px; color:#8a867d; font-style:italic; line-height:1.45;">{{ item.venue }}</div>
+                  <sc-if value="{{ item.hasLinks }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
+                      <sc-for list="{{ item.links }}" as="lnk" hint-placeholder-count="1">
+                        <a href="{{ lnk.url }}" target="_blank" style="font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.02em; color:var(--accent,#2d5f8a); text-decoration:none; border:1px solid #e0ddd4; border-radius:5px; padding:2px 8px; transition:all .2s;" style-hover="background:var(--accent,#2d5f8a); color:#fff; border-color:var(--accent,#2d5f8a);">{{ lnk.label }}</a>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </section>
+
+      <!-- TALKS -->
+      <section id="talks" style="margin-top:64px; scroll-margin-top:48px;">
+        <div style="border-bottom:1px solid #201f1c; padding-bottom:10px; margin-bottom:22px;">
+          <h2 style="font-family:var(--heading-font,'Instrument Sans',sans-serif); font-size:26px; font-weight:600; letter-spacing:-0.02em; margin:0;">Talks</h2>
+        </div>
+        <sc-for list="{{ talks }}" as="t" hint-placeholder-count="6">
+          <div style="display:flex; gap:20px; padding:13px 12px; margin:0 -12px; border-radius:8px; transition:background .2s;" style-hover="background:#f4f2ec;">
+            <div style="flex:0 0 92px; font-family:'Space Mono', monospace; font-size:12px; color:#a19d94; padding-top:2px;">{{ t.date }}</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:15.5px; font-weight:600; letter-spacing:-0.01em; line-height:1.4; margin-bottom:3px;">{{ t.title }}</div>
+              <div style="font-size:13.5px; color:#6b6862;">{{ t.venue }}</div>
+              <sc-if value="{{ t.hasLinks }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:7px;">
+                  <sc-for list="{{ t.links }}" as="lnk" hint-placeholder-count="1">
+                    <a href="{{ lnk.url }}" target="_blank" style="font-family:'Space Mono', monospace; font-size:11px; color:var(--accent,#2d5f8a); text-decoration:none; border:1px solid #e0ddd4; border-radius:5px; padding:2px 8px; transition:all .2s;" style-hover="background:var(--accent,#2d5f8a); color:#fff; border-color:var(--accent,#2d5f8a);">{{ lnk.label }}</a>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+
+      <!-- AWARDS -->
+      <section id="awards" style="margin-top:64px; scroll-margin-top:48px;">
+        <div style="border-bottom:1px solid #201f1c; padding-bottom:10px; margin-bottom:22px;">
+          <h2 style="font-family:var(--heading-font,'Instrument Sans',sans-serif); font-size:26px; font-weight:600; letter-spacing:-0.02em; margin:0;">Awards &amp; Honors</h2>
+        </div>
+        <sc-for list="{{ awards }}" as="a" hint-placeholder-count="8">
+          <div style="display:flex; gap:20px; padding:12px 12px; margin:0 -12px; border-radius:8px; transition:background .2s;" style-hover="background:#f4f2ec;">
+            <div style="flex:0 0 92px; font-family:'Space Mono', monospace; font-size:12px; color:#a19d94; padding-top:2px;">{{ a.date }}</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:14.5px; line-height:1.5; color:#201f1c;">{{ a.text }}</div>
+              <sc-if value="{{ a.hasLinks }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;">
+                  <sc-for list="{{ a.links }}" as="lnk" hint-placeholder-count="1">
+                    <a href="{{ lnk.url }}" target="_blank" style="font-family:'Space Mono', monospace; font-size:11px; color:var(--accent,#2d5f8a); text-decoration:none; border:1px solid #e0ddd4; border-radius:5px; padding:2px 8px; transition:all .2s;" style-hover="background:var(--accent,#2d5f8a); color:#fff; border-color:var(--accent,#2d5f8a);">{{ lnk.label }}</a>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" style="margin-top:64px; scroll-margin-top:48px;">
+        <div style="border-bottom:1px solid #201f1c; padding-bottom:10px; margin-bottom:22px;">
+          <h2 style="font-family:var(--heading-font,'Instrument Sans',sans-serif); font-size:26px; font-weight:600; letter-spacing:-0.02em; margin:0;">Experience</h2>
+        </div>
+        <sc-for list="{{ experience }}" as="e" hint-placeholder-count="7">
+          <div style="display:flex; gap:20px; padding:12px 12px; margin:0 -12px; border-radius:8px; transition:background .2s;" style-hover="background:#f4f2ec;">
+            <div style="flex:0 0 150px; font-family:'Space Mono', monospace; font-size:12px; color:#a19d94; padding-top:2px;">{{ e.period }}</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:15px; font-weight:600; letter-spacing:-0.01em;">{{ e.role }}</div>
+              <div style="font-size:13.5px; color:#6b6862;">{{ e.org }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education" style="margin-top:64px; scroll-margin-top:48px;">
+        <div style="border-bottom:1px solid #201f1c; padding-bottom:10px; margin-bottom:22px;">
+          <h2 style="font-family:var(--heading-font,'Instrument Sans',sans-serif); font-size:26px; font-weight:600; letter-spacing:-0.02em; margin:0;">Education</h2>
+        </div>
+        <sc-for list="{{ education }}" as="e" hint-placeholder-count="3">
+          <div style="display:flex; gap:20px; padding:12px 12px; margin:0 -12px; border-radius:8px; transition:background .2s;" style-hover="background:#f4f2ec;">
+            <div style="flex:0 0 150px; font-family:'Space Mono', monospace; font-size:12px; color:#a19d94; padding-top:2px;">{{ e.period }}</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:15px; font-weight:600; letter-spacing:-0.01em;">{{ e.degree }}</div>
+              <div style="font-size:13.5px; color:#6b6862;">{{ e.org }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+
+      <footer style="margin-top:80px; padding-top:20px; border-top:1px solid #e6e3dc; font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.04em; color:#a19d94;">mengsaylms@gmail.com &nbsp;·&nbsp; Tokyo, Japan</footer>
+    </main>
+  </div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1120,&quot;height&quot;:900},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2d5f8a&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#2d5f8a&quot;,&quot;#a8563a&quot;,&quot;#3f7a52&quot;,&quot;#6a4c93&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;serifHeadings&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;}}">
+class Component extends DCLogic {
+  state = { filter: 'all', copied: false };
+
+  splitAuthors(str) {
+    const segs = str.split('Mengsay Loem');
+    const parts = [];
+    segs.forEach((seg, i) => {
+      if (seg) parts.push({ text: seg, me: false, plain: true });
+      if (i < segs.length - 1) parts.push({ text: 'Mengsay Loem', me: true, plain: false });
+    });
+    return parts;
+  }
+
+  copyEmail = () => {
+    const email = 'mengsaylms@gmail.com';
+    const done = () => { this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(done, done);
+    } else {
+      const ta = document.createElement('textarea'); ta.value = email; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta); done();
+    }
+  };
+
+  get data() {
+    return [
+      { key: 'journal', label: 'Journal', items: [
+        { year: '2025', title: 'Likelihood-based Mitigation of Evaluation Bias in Large Language Models', authors: 'Masanari Ohi, Masahiro Kaneko, Ryuto Koike, Mengsay Loem, and Naoaki Okazaki', venue: 'Journal of Natural Language Processing, Vol. 32, Issue 2, pp. 480–496', links: [{ label: 'paper', url: 'https://www.jstage.jst.go.jp/article/jnlp/32/2/32_480/_article/-char/en/' }] },
+        { year: '2023', title: 'ExtraPhrase: Efficient Data Augmentation for Abstractive Summarization', authors: 'Mengsay Loem, Sho Takase, Masahiro Kaneko, Naoaki Okazaki', venue: 'Journal of Natural Language Processing, Vol. 30, Issue 2, pp. 489–506', links: [{ label: 'paper', url: 'https://www.jstage.jst.go.jp/article/jnlp/30/2/30_489/_article/-char/en' }] },
+      ]},
+      { key: 'intl', label: 'International Conference & Workshop', items: [
+        { year: '2024', title: 'Building a Large Japanese Web Corpus for Large Language Models', authors: 'Naoaki Okazaki, Kakeru Hattori, Hirai Shota, Hiroki Iida, Masanari Ohi, Kazuki Fujii, Taishi Nakamura, Mengsay Loem, Rio Yokota, and Sakae Mizuki', venue: 'Conference on Language Modeling (COLM), Univ. of Pennsylvania, USA', links: [] },
+        { year: '2024', title: 'Continual Pre-Training for Cross-Lingual LLM Adaptation: Enhancing Japanese Language Capabilities', authors: 'Kazuki Fujii, Taishi Nakamura, Mengsay Loem, Hiroki Iida, Masanari Ohi, Kakeru Hattori, Hirai Shota, Sakae Mizuki, Rio Yokota, and Naoaki Okazaki', venue: 'Conference on Language Modeling (COLM), Univ. of Pennsylvania, USA', links: [] },
+        { year: '2024', title: "SAIE Framework: Support Alone Isn't Enough — Advancing LLM Training with Adversarial Remarks", authors: 'Mengsay Loem, Masahiro Kaneko, and Naoaki Okazaki', venue: '27th European Conference on Artificial Intelligence (ECAI-2024), Santiago de Compostela, Spain', links: [{ label: 'arXiv', url: 'https://arxiv.org/abs/2311.08107' }] },
+        { year: '2024', title: 'Likelihood-based Mitigation of Evaluation Bias in Large Language Models', authors: 'Masanari Ohi, Masahiro Kaneko, Ryuto Koike, Mengsay Loem, Naoaki Okazaki', venue: '62nd Annual Meeting of the ACL (Findings)', links: [{ label: 'arXiv', url: 'https://arxiv.org/abs/2402.15987' }] },
+        { year: '2023', title: 'Exploring Effectiveness of GPT-3 in Grammatical Error Correction: A Study on Performance and Controllability in Prompt-Based Methods', authors: 'Mengsay Loem, Masahiro Kaneko, Sho Takase, and Naoaki Okazaki', venue: '18th Workshop on Innovative Use of NLP for Building Educational Applications (BEA 2023), pp. 205–219, Toronto, Canada', links: [{ label: 'paper', url: 'https://aclanthology.org/2023.bea-1.18/' }] },
+        { year: '2022', title: 'ExtraPhrase: Efficient Data Augmentation for Abstractive Summarization', authors: 'Mengsay Loem, Sho Takase, Masahiro Kaneko, Naoaki Okazaki', venue: 'NAACL Student Research Workshop (NAACL:SRW), Seattle', links: [{ label: 'paper', url: 'https://aclanthology.org/2022.naacl-srw.3/' }] },
+        { year: '2016', title: 'A Design of Low Cost and High-Performance Speed Detector Combining Digital Camera and Photo-resistive Sensor', authors: 'Mengsay Loem, David Taingngin, Chan Oeurn Chey, Meak Kamerane', venue: 'Youth Innovation for Sustainability, SEAMEO Recsam', links: [] },
+      ]},
+      { key: 'preprint', label: 'Pre-print', items: [
+        { year: '2025', title: 'Contrasting Cognitive Styles in Vision-Language Models: Holistic Attention in Japanese Versus Analytical Focus in English', authors: 'Ahmed Sabir, Azinovič Gasper, Mengsay Loem, Rajesh Sharma', venue: 'arXiv', links: [{ label: 'paper', url: 'https://arxiv.org/abs/2507.00700' }] },
+        { year: '2022', title: 'Are Neighbors Enough? Multi-Head Neural n-gram can be Alternative to Self-attention', authors: 'Mengsay Loem, Sho Takase, Masahiro Kaneko, Naoaki Okazaki', venue: 'arXiv', links: [{ label: 'paper', url: 'https://arxiv.org/abs/2207.13354' }] },
+      ]},
+      { key: 'domestic', label: 'Domestic Conference & Symposium (Japanese)', items: [
+        { year: '2026', title: '因果追跡に基づくVLMのモジュール重要度推定とLoRA適用先選択の検証', authors: '佐藤 勇元, Mengsay Loem', venue: '言語処理学会第32回年次大会 (NLP2026), pp. 1531–1536', links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2026/pdf_dir/B4-8.pdf' }] },
+        { year: '2026', title: 'いつ考え，いつ即答するか。文書理解視覚言語モデルにおける推論ルーティングの評価', authors: 'Mengsay Loem, 橋本 航', venue: '言語処理学会第32回年次大会 (NLP2026), pp. 1226–1231', links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2026/pdf_dir/C3-5.pdf' }] },
+        { year: '2025', title: '視覚的質問応答による文書情報抽出における同時多項目推論', authors: 'Mengsay Loem, 保坂 大樹', venue: '言語処理学会第31回年次大会 (NLP2025), pp. 4227–4231', links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/Q10-9.pdf' }] },
+        { year: '2024', title: '敵対的発言を取り入れた議論による言語モデルの学習強化と推論力の向上', authors: 'Mengsay Loem, 金子 正弘, 岡崎 直観', venue: '言語処理学会第30回年次大会 (NLP2024), pp. 2750–2755', links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/B10-6.pdf' }] },
+        { year: '2024', title: '大規模言語モデルにおける評価バイアスの尤度に基づく緩和', authors: '大井 聖也, 金子 正弘, 小池 隆斗, Mengsay Loem, 岡崎 直観', venue: '言語処理学会第30回年次大会 (NLP2024), pp. 3021–3026', links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A11-4.pdf' }] },
+        { year: '2024', title: 'Swallowコーパス: 日本語大規模ウェブコーパス', authors: '岡崎 直観, 服部 翔, 平井 翔太, 飯田 大貴, 大井 聖也, 藤井 一喜, 中村 泰士, Mengsay Loem, 横田 理央, 水木 栄', venue: '言語処理学会第30回年次大会 (NLP2024), pp. 1498–1503', links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A6-1.pdf' }] },
+        { year: '2024', title: '大規模言語モデルの日本語能力の効率的な強化: 継続事前学習における語彙拡張と対訳コーパスの活用', authors: '水木 栄, 飯田 大貴, 藤井 一喜, 中村 泰士, Mengsay Loem, 大井 聖也, 服部 翔, 平井 翔太, 横田 理央, 岡崎 直観', venue: '言語処理学会第30回年次大会 (NLP2024), pp. 1514–1519', links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A6-4.pdf' }] },
+        { year: '2024', title: '継続事前学習による日本語に強い大規模言語モデルの構築', authors: '藤井 一喜, 中村 泰士, Mengsay Loem, 飯田 大貴, 大井 聖也, 服部 翔, 平井 翔太, 水木 栄, 横田 理央, 岡崎 直観', venue: '言語処理学会第30回年次大会 (NLP2024), pp. 2102–2107', links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A8-5.pdf' }] },
+        { year: '2023', title: 'マルチヘッドニューラルN-gramによる自己注意機構の代替', authors: 'Mengsay Loem, 高瀬 翔, 金子 正弘, 岡崎 直観', venue: '言語処理学会第29回年次大会 (NLP2023), A9-1, pp. 2094–2099', links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2023/pdf_dir/A9-1.pdf' }] },
+        { year: '2022', title: 'Are Neighbors Enough? Multi-Head Neural n-gram can be Alternative to Self-attention', authors: 'Mengsay Loem, 高瀬 翔, 岡崎 直観', venue: '第17回NLP若手の会シンポジウム, P5-07', links: [] },
+        { year: '2022', title: '抽出型要約と言い換えによる生成型要約の訓練データ拡張', authors: 'Mengsay Loem, 高瀬 翔, 金子 正弘, 岡崎 直観', venue: '言語処理学会第28回年次大会 (NLP2022), pp. 1996–2001', links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2022/pdf_dir/D8-3.pdf' }] },
+      ]},
+    ];
+  }
+
+  renderVals() {
+    const accent = this.props.accent || '#2d5f8a';
+    const serif = this.props.serifHeadings ?? false;
+    const rootStyle = `--accent:${accent}; --heading-font:${serif ? "'Newsreader', Georgia, serif" : "'Instrument Sans', system-ui, sans-serif"};`;
+
+    const cats = this.data.map(c => ({
+      key: c.key, label: c.label,
+      items: c.items.map(it => ({
+        ...it,
+        parts: this.splitAuthors(it.authors),
+        hasLinks: it.links && it.links.length > 0,
+        links: it.links || [],
+      })),
+    }));
+    const total = cats.reduce((n, c) => n + c.items.length, 0);
+
+    const filter = this.state.filter;
+    const visibleCategories = filter === 'all' ? cats : cats.filter(c => c.key === filter);
+
+    const tabDefs = [{ key: 'all', label: 'All' }, ...this.data.map(c => ({ key: c.key, label: c.label.replace(' Conference & Workshop', '').replace(' Conference & Symposium (Japanese)', ' (JP)') }))];
+    const tabBase = "font-family:'Space Mono', monospace; font-size:11.5px; letter-spacing:0.02em; padding:6px 13px; border-radius:100px; cursor:pointer; transition:all .18s;";
+    const tabs = tabDefs.map(t => ({
+      label: t.label,
+      onClick: () => this.setState({ filter: t.key }),
+      style: filter === t.key
+        ? tabBase + ` background:#201f1c; color:#fbfaf7; border:1px solid #201f1c;`
+        : tabBase + ` background:transparent; color:#6b6862; border:1px solid #e6e3dc;`,
+    }));
+
+    const copied = this.state.copied;
+    const emailBtnStyle = "font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.04em; text-decoration:none; padding:6px 10px; border-radius:6px; cursor:pointer; transition:all .2s; " + (copied ? `background:var(--accent,#2d5f8a); color:#fff; border:1px solid var(--accent,#2d5f8a);` : `background:transparent; color:#6b6862; border:1px solid #e6e3dc;`);
+
+    return {
+      rootStyle,
+      pubCount: String(total).padStart(2, '0'),
+      tabs,
+      visibleCategories,
+      copyEmail: this.copyEmail,
+      emailLabel: copied ? 'Copied ✓' : 'Email',
+      emailBtnStyle,
+      talks: [
+        { date: 'Feb 2026', title: 'VLMで帳票の情報抽出を前進させた話', venue: 'Kyoto AI Meetup #1', hasLinks: false, links: [] },
+        { date: 'Aug 2024', title: 'Enhancing LLMs with Interactive Feedback: Advancing Learning and Reasoning', venue: 'Tokyo AI — Advanced AI #3', hasLinks: true, links: [{ label: 'slide', url: 'https://www.slideshare.net/slideshow/enhancingllmswithinteractivefeedback-tai-aai-pdf/270851735' }] },
+        { date: 'Jul 2024', title: 'A Journey of Generative Model', venue: 'Invited Talk — AI Webinar, Forum for Pushing the Boundary', hasLinks: true, links: [{ label: 'note', url: 'https://loem-ms.github.io/generative-model' }] },
+        { date: 'Jan 2024', title: "Showcasing Experiences in a Master's Education in Computer Science", venue: 'Panel — TechTalk Throwdown, Cambodian Student Association in the USA', hasLinks: true, links: [{ label: 'note', url: 'https://speakerdeck.com/mengsay/showcasing-experiences-in-a-masters-education-in-computer-science' }] },
+        { date: 'Jun 2023', title: 'Beyond the Symbols: A 30-minute Overview of NLP', venue: 'Invited Talk — Cambodian MEXT Scholar IT Team', hasLinks: true, links: [{ label: 'slide', url: 'https://www.slideshare.net/MENGSAYLOEM1/beyond-the-symbols-a-30minute-overview-of-nlp' }] },
+        { date: 'Dec 2021', title: 'Deep Learning based Natural Language Processing', venue: 'Invited Talk — NLP Webinar, Forum for Pushing the Boundary', hasLinks: true, links: [{ label: 'slide', url: 'https://drive.google.com/file/d/1GX9-XcOJOy-r5hzif5UkmXulaD6GrQk-/view?usp=sharing' }] },
+      ],
+      awards: [
+        { date: '2026', text: 'Best Journal Paper Award — 32nd Annual Meeting of the Association for NLP (Japan)', hasLinks: true, links: [{ label: 'paper', url: 'https://www.jstage.jst.go.jp/article/jnlp/32/2/32_480/_article/-char/en' }] },
+        { date: '2025', text: 'Language Resources Award — NLP2025, for Swallow LLM (Japan)', hasLinks: true, links: [{ label: 'Swallow LLM', url: 'https://swallow-llm.github.io/' }] },
+        { date: '2024', text: "Young Researcher's Encouragement Award — 30th Annual Meeting of the Association for NLP (Japan)", hasLinks: true, links: [{ label: 'paper', url: 'https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/B10-6.pdf' }] },
+        { date: '2024', text: 'Best Paper Awards — 30th Annual Meeting of the Association for NLP (Japan)', hasLinks: true, links: [{ label: 'paper 1', url: 'https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A6-1.pdf' }, { label: 'paper 2', url: 'https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A8-5.pdf' }] },
+        { date: '2022–24', text: 'Sato Yo International Scholarship', hasLinks: false, links: [] },
+        { date: '2020–22', text: 'Japanese Government (MEXT) Scholarship', hasLinks: false, links: [] },
+        { date: '2020', text: 'IEICE Kyushu Section Award for Academic Excellence (Japan)', hasLinks: false, links: [] },
+        { date: '2020', text: "President's Award for Best Graduation Project, Kagoshima College of Technology (Japan)", hasLinks: false, links: [] },
+        { date: '2016–20', text: 'Japanese Government (MEXT) Scholarship — College of Technology', hasLinks: false, links: [] },
+        { date: '2016', text: 'Outstanding Award — 10th Regional Congress, SEAMEO Young Scientists (Malaysia)', hasLinks: false, links: [] },
+        { date: '2015', text: '56th International Mathematical Olympiad — Participation (Thailand)', hasLinks: false, links: [] },
+        { date: '2015', text: 'Gold Medal — Cambodian National Mathematical Olympiad (Cambodia)', hasLinks: false, links: [] },
+      ],
+      experience: [
+        { period: 'Jul 2026 —', role: 'Engineer', org: 'Preferred Networks, Inc.' },
+        { period: 'Apr 2024 – Jun 2026', role: 'Researcher', org: 'Sansan, Inc.' },
+        { period: 'Aug 2023 – Mar 2024', role: 'Member', org: 'TokyoTech-LLM' },
+        { period: 'Dec 2021 – Mar 2024', role: 'Research Assistant', org: 'Tokyo Institute of Technology' },
+        { period: 'Jan 2023 – Dec 2023', role: 'Chair, IT Committee', org: "Cambodian Students' Association in Japan" },
+        { period: 'Nov 2020 – Aug 2023', role: 'Part-time Technical Staff', org: 'Novitas, Inc.' },
+        { period: 'Oct 2022 – Dec 2022', role: 'Teaching Assistant', org: 'Tokyo Institute of Technology' },
+      ],
+      education: [
+        { period: 'Apr 2022 – Mar 2024', degree: 'M.Eng. in Artificial Intelligence', org: 'Tokyo Institute of Technology — Okazaki Laboratory' },
+        { period: 'Apr 2020 – Mar 2022', degree: 'B.Eng. in Computer Science', org: 'Tokyo Institute of Technology' },
+        { period: 'Apr 2017 – Mar 2020', degree: 'Associate of Engineering in Information Engineering', org: 'National Institute of Technology, Kagoshima College' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
