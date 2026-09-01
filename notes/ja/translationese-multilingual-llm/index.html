@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>多言語LLMの出力は何に似ているのか — Mengsay Loem</title><meta name="description" content="多言語LLMの直接生成に現れるtranslationeseと、「英語で考えているか」より 検証しやすそうな問いについての短いメモ。"><link rel="alternate" hreflang="en" href="https://loem-ms.github.io/notes/en/translationese-multilingual-llm/"><link rel="alternate" hreflang="ja" href="https://loem-ms.github.io/notes/ja/translationese-multilingual-llm/"><link rel="canonical" href="https://loem-ms.github.io/notes/ja/translationese-multilingual-llm/"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../style.css"></head><body><!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell"><header class="site-head"><a class="brand" href="../"><span class="brand-name">Mengsay Loem</span><span class="brand-sep">/</span><span class="brand-section">Notes</span></a><div class="head-actions"><div class="lang-switch"><a href="../../en/translationese-multilingual-llm/">EN</a><span class="sep">/</span><span aria-current="page">日本語</span></div><a class="home-link" href="../../../">Home</a></div></header><article class="article"><header class="article-head"><div class="kicker">Paper note</div><h1>多言語LLMの出力は何に似ているのか</h1><div class="meta">2026-09-01 · paper-reading / multilingual / llm / translationese</div></header><div class="prose"><p>最近、<strong>An Investigation of Translationese in the Generations of Multilingual Large Language Models</strong> (<a href="https://arxiv.org/abs/2608.17399">arXiv:2608.17399</a>) を読みました。</p>
+<h2>どんな問いか</h2>
+<p>多言語LLMはさまざまな言語で自然な文章を生成できますが、学習データやpost-trainingは英語や翻訳文の影響を強く受けています。この論文が見ているのは、その影響が最終出力にも現れるのか、つまり <strong>明示的に翻訳させていなくても、直接生成した文章に「翻訳文らしさ（translationese）」が残るのか</strong> という点です。</p>
+<p>著者らは2つの多言語LLMと5言語を対象に、人間による<strong>原生文と翻訳文だけ</strong>からtranslationese classifierを学習し、それをLLMの直接生成に適用しています。</p>
+<h2>Findings</h2>
+<p>特に印象に残ったのは次の3点です。</p>
+<ul>
+<li>直接生成でも、<strong>統計的にtranslationese-likeな特徴</strong>が現れる。</li>
+<li>特にドイツ語・スペイン語で強く、ギリシャ語・パシュトー語では弱い。単純に「低資源言語ほど翻訳っぽい」という話ではない。</li>
+<li>自動classifierと人間の感覚は必ずしも一致せず、統計的には翻訳文に近くても、ネイティブには自然に感じられる場合がある。</li>
+</ul>
+<h2>私たちのコメント</h2>
+<p>個人的により気になったのは、<strong>この結果から何が言えないか</strong>です。LLMの出力が翻訳文の分布に近いからといって、LLMが内部で英語に翻訳してから出力している、とまでは言えません。</p>
+<p>そもそも、人間による翻訳と、その言語で最初から書かれた文章は、同じ分布とは限らないはずです。翻訳では、すでに存在する原文に条件付けられます。情報の順序、何を明示するか、文の切り方などが原文側である程度決まっています。一方で、原生文では同じ内容でも、その言語らしい形でより自由に表現できます。</p>
+<p>もう一つありそうなのは、翻訳とinstruction-tuned LLMの生成が、表現の均質化、明示性、語彙や構造のバリエーション低下などを別の理由で共有している可能性です。そうであれば、translationeseに見えるものの一部は、英語を経由している証拠ではなく、より一般的な <strong>constrained generationの特徴</strong>かもしれません。</p>
+<p>そこで、少し問いをずらした方が面白いのではないかと思いました。</p>
+<blockquote>
+<p><strong>「LLMは英語で考えているか？」ではなく、「LLMのtarget-language generationは、どの生成過程の分布に最も近いのか？」</strong></p>
+</blockquote>
+<p>例えば、LLMの直接生成が近いのは、その言語での人間の原生作文なのか、英語からの人間翻訳なのか、別言語からの翻訳なのか、同一言語内の言い換えなのか、それとも翻訳ではないが強い制約を与えた人間作文なのか。</p>
+<p>「内部で何語を使っているか」を直接決めにいくより、<strong>最終出力がどの生成過程由来の分布に近いのかを比較する</strong>。この問いの置き換えが、今回の論文から一番持ち帰りたいアイデアです。</p>
+</div></article><footer><a href="../">← すべてのNotes</a></footer></div></body></html>
