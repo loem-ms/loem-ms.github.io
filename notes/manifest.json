@@ -1,0 +1,37 @@
+{
+  "default_language": "en",
+  "languages": [
+    "en",
+    "ja"
+  ],
+  "notes": [
+    {
+      "id": "starting-notes",
+      "slug": "starting-notes",
+      "published_at": "2026-09-01",
+      "updated_at": null,
+      "type": "meta",
+      "tags": [
+        "meta",
+        "research-notes"
+      ],
+      "languages": [
+        "en",
+        "ja"
+      ],
+      "default_language": "en",
+      "title": {
+        "en": "Starting Notes",
+        "ja": "Notesを始めます"
+      },
+      "summary": {
+        "en": "A small kickoff for this new space — and a first test of how I want to keep and share research notes.",
+        "ja": "研究メモを残し、共有するための新しい場所としてNotesを始めます。"
+      },
+      "urls": {
+        "en": "/notes/en/starting-notes/",
+        "ja": "/notes/ja/starting-notes/"
+      }
+    }
+  ]
+}
