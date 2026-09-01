@@ -1,0 +1,33 @@
+id: translationese-multilingual-llm
+slug: translationese-multilingual-llm
+published_at: 2026-09-01
+updated_at: null
+status: published
+type: paper-note
+default_language: en
+
+languages:
+  - en
+  - ja
+
+tags:
+  - paper-reading
+  - multilingual
+  - llm
+  - translationese
+
+kicker:
+  en: Paper note
+  ja: Paper note
+
+title:
+  en: What Does Multilingual LLM Output Resemble?
+  ja: 多言語LLMの出力は何に似ているのか
+
+summary:
+  en: >-
+    A short note on translationese in multilingual LLM generation, and a question
+    that may be more useful than asking whether a model "thinks in English."
+  ja: >-
+    多言語LLMの直接生成に現れるtranslationeseと、「英語で考えているか」より
+    検証しやすそうな問いについての短いメモ。
