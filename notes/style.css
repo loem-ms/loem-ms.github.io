@@ -1,0 +1,160 @@
+:root {
+  --accent: #2d5f8a;
+  --bg: #fbfaf7;
+  --ink: #201f1c;
+  --muted: #6b6862;
+  --faint: #a19d94;
+  --line: #e6e3dc;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--ink); color: var(--bg); }
+a { color: inherit; }
+
+.shell {
+  width: min(860px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 56px 0 96px;
+}
+
+.site-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+}
+.brand-name { font-size: 18px; font-weight: 600; letter-spacing: -.015em; }
+.brand-sep { color: var(--faint); }
+.brand-section {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.head-actions { display: flex; align-items: center; gap: 14px; }
+.home-link,
+.lang-switch a,
+.lang-switch span {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .03em;
+  text-decoration: none;
+}
+.home-link { color: var(--muted); }
+.home-link:hover,
+.lang-switch a:hover { color: var(--accent); }
+.lang-switch { display: flex; align-items: center; gap: 7px; }
+.lang-switch span[aria-current='page'] { color: var(--ink); font-weight: 700; }
+.lang-switch .sep { color: var(--line); }
+
+.hero { padding: 68px 0 44px; }
+.kicker {
+  font-family: 'Space Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 12px;
+}
+h1 {
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+  margin: 0;
+  font-weight: 600;
+}
+.deck {
+  max-width: 62ch;
+  margin: 20px 0 0;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #3f3d38;
+}
+
+.note-list { margin-top: 20px; border-top: 1px solid var(--ink); }
+.note-row {
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  gap: 22px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+.note-row:hover .note-title { color: var(--accent); }
+.note-date {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--faint);
+  padding-top: 5px;
+}
+.note-title { font-size: 20px; font-weight: 600; letter-spacing: -.015em; transition: color .18s; }
+.note-desc { margin-top: 5px; color: var(--muted); font-size: 14px; }
+.note-tags { margin-top: 10px; display: flex; gap: 7px; flex-wrap: wrap; }
+.tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 8px;
+  color: var(--muted);
+}
+
+.article { max-width: 720px; margin: 0 auto; padding-top: 64px; }
+.article-head { padding-bottom: 28px; border-bottom: 1px solid var(--line); margin-bottom: 38px; }
+.article h1 { font-size: clamp(34px, 6vw, 52px); }
+.meta {
+  margin-top: 18px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--faint);
+}
+.prose { font-size: 17px; }
+.prose p { margin: 0 0 1.35em; }
+.prose a { color: var(--accent); text-underline-offset: 3px; }
+.prose h2 { font-size: 25px; letter-spacing: -.02em; margin: 2.2em 0 .7em; }
+.end-note {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-family: 'Space Mono', monospace;
+  font-size: 10.5px;
+  color: var(--faint);
+}
+
+footer {
+  margin-top: 72px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-family: 'Space Mono', monospace;
+  font-size: 10.5px;
+  color: var(--faint);
+}
+
+@media (max-width: 640px) {
+  .shell { width: min(100% - 36px, 860px); padding-top: 34px; }
+  .site-head { align-items: flex-start; }
+  .head-actions { flex-direction: column; align-items: flex-end; gap: 6px; }
+  .hero { padding-top: 48px; }
+  .deck { font-size: 16.5px; }
+  .note-row { grid-template-columns: 1fr; gap: 5px; }
+  .article { padding-top: 48px; }
+  .prose { font-size: 16px; }
+}
