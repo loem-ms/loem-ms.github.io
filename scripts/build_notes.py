@@ -89,7 +89,7 @@ def index(site,notes,lang,root=False):
     localized=[n for n in notes if lang in n["languages"]]
     rows=[]
     for n in localized:
-        tags=''.join(f'<span class="tag">{esc(t)}</span>' for t in n["tags"])
+        tags=' '.join(f'<span class="tag">#{esc(t)}</span>' for t in n["tags"])
         year=n["published_at"][:4]
         rows.append(f'<a class="note-row" data-year="{year}" href="{prefix}{esc(n["slug"])}/"><div class="note-date">{n["published_at"]}</div><div><div class="note-title">{esc(n["title"][lang])}</div><div class="note-desc">{esc(n["summary"][lang])}</div><div class="note-tags">{tags}</div></div></a>')
     years=sorted({n["published_at"][:4] for n in localized}, reverse=True)
@@ -98,9 +98,9 @@ def index(site,notes,lang,root=False):
     all_years=cfg.get("all_years","All years")
     empty_text=cfg.get("no_results","No notes match these filters.")
     filters=f'''<div class="note-tools"><input id="note-search" class="note-search" type="search" autocomplete="off" placeholder="{esc(search_placeholder)}" aria-label="{esc(search_placeholder)}"><select id="note-year" class="note-year" aria-label="{esc(all_years)}"><option value="">{esc(all_years)}</option>{year_options}</select><span id="note-count" class="note-count" aria-live="polite"></span></div>'''
-    about=''.join(f'<p>{esc(p)}</p>' for p in cfg.get('about', []))
-    info=f'''<section class="about-notes"><div class="about-block"><div class="kicker">{esc(cfg.get("about_title","About these notes"))}</div>{about}</div><div class="about-block collaboration"><div class="kicker">{esc(cfg.get("collaboration_title","Collaboration"))}</div><p>{esc(cfg.get("collaboration",""))}</p></div></section>'''
-    body=f'''<!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell">{header(site,lang,"./",home,hrefs)}<main><section class="hero"><div class="kicker">{esc(cfg["notebook_kicker"])}</div><h1>Notes</h1><p class="deck">{esc(cfg["description"])}</p></section>{info}{filters}<div class="note-list">{"".join(rows)}</div><p id="note-empty" class="note-empty" hidden>{esc(empty_text)}</p></main><footer>Notes by Mengsay Loem · Tokyo</footer></div>{filter_script(empty_text)}'''
+    about_more=''.join(f'<p>{esc(p)}</p>' for p in cfg.get('about', []))
+    about=f'''<div class="editorial-note"><div><div class="kicker">{esc(cfg.get("about_title","About these notes"))}</div><p>{esc(cfg.get("about_summary",""))}</p><details><summary>{esc(cfg.get("about_more_label","Details"))}</summary><div class="editorial-more">{about_more}</div></details></div><div class="collab-note"><div class="kicker">{esc(cfg.get("collaboration_title","Collaboration"))}</div><p>{esc(cfg.get("collaboration",""))}</p><a href="mailto:{esc(site.get("contact_email",""))}">Contact ↗</a></div></div>'''
+    body=f'''<!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell">{header(site,lang,"./",home,hrefs)}<main><section class="hero"><div class="kicker">{esc(cfg["notebook_kicker"])}</div><h1>Notes</h1><p class="deck">{esc(cfg["description"])}</p></section>{about}{filters}<div class="note-list">{"".join(rows)}</div><p id="note-empty" class="note-empty" hidden>{esc(empty_text)}</p></main><footer>Notes by Mengsay Loem · Tokyo</footer></div>{filter_script(empty_text)}'''
     canonical=site["base_url"].rstrip('/') + ('/notes/' if root else f'/notes/{lang}/')
     return doc(cfg["html_lang"],"Notes — Mengsay Loem",cfg["description"],css,body,f'<link rel="canonical" href="{canonical}">')
 
@@ -112,7 +112,7 @@ def paper_ref(n):
     author_label=f"{first} et al." if len(paper["authors"]) > 1 else first
     venue=paper.get("venue_short") or paper.get("venue") or ""
     compact=" · ".join(x for x in (author_label, f'{venue} {paper["year"]}'.strip()) if x)
-    return f'''<a class="paper-ref" href="{esc(paper["url"])}" target="_blank" rel="noopener"><span class="paper-ref-label">Paper</span><span class="paper-ref-main"><span class="paper-ref-title">{esc(paper["title"])}</span><span class="paper-ref-cite">{esc(compact)} ↗</span></span></a>'''
+    return f'''<div class="paper-ref"><span class="paper-ref-label">Reading</span><div><a class="paper-ref-title" href="{esc(paper["url"])}" target="_blank" rel="noopener">{esc(paper["title"])} ↗</a><span class="paper-ref-cite">{esc(compact)}</span></div></div>'''
 
 
 def article(site,n,lang):
