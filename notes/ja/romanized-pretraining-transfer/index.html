@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Romanizationは言語間転移を本当に助けるのか — Mengsay Loem</title><meta name="description" content="Romanizationをpretrainingから使うと異なる文字体系間の言語間転移が強くなるという結果と、 その理由を語彙の重なりだけでは説明しきれないのでは、という短いメモ。"><link rel="alternate" hreflang="en" href="https://loem-ms.github.io/notes/en/romanized-pretraining-transfer/"><link rel="alternate" hreflang="ja" href="https://loem-ms.github.io/notes/ja/romanized-pretraining-transfer/"><link rel="canonical" href="https://loem-ms.github.io/notes/ja/romanized-pretraining-transfer/"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../style.css"></head><body><!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell"><header class="site-head"><a class="brand" href="../"><span class="brand-name">Mengsay Loem</span><span class="brand-sep">/</span><span class="brand-section">Notes</span></a><div class="head-actions"><div class="lang-switch"><a href="../../en/romanized-pretraining-transfer/">EN</a><span class="sep">/</span><span aria-current="page">日本語</span></div><a class="home-link" href="../../../">Home</a></div></header><article class="article"><header class="article-head"><div class="kicker">Paper note</div><h1>Romanizationは言語間転移を本当に助けるのか</h1><div class="meta">2026-09-01 · paper-reading / multilingual / llm / cross-lingual-transfer / romanization / tokenization</div><div class="paper-ref"><span class="paper-ref-label">Reading</span><div><a class="paper-ref-title" href="https://arxiv.org/abs/2608.25904" target="_blank" rel="noopener">One Form to Transfer Them All: Pretraining Multilingual Language Models Beyond Native Orthography ↗</a><span class="paper-ref-cite">Zhang et al. · EMNLP 2026</span></div></div></header><div class="prose"><h2>どんな問いか</h2>
+<p>多言語モデルでは、言語間でトークンや語彙的な構造を共有できることが言語間転移性能を助けます。一方で、言語的には近くてもスクリプト (script) が違うと、その共通性が表面上ほとんど見えなくなることがあります。</p>
+<p>この論文が問うのは、かなりシンプルです。<strong>元の文字体系での表記 (native orthography/text) をそのまま使うのではなく、事前学習 (pretraining) の最初から共通した表記空間に変換したら、多言語転移はどう変わるのか？</strong></p>
+<p>著者らは8言語を対象に、native text、IPA、romanizationの3種類を比較し、複数のモデルスケールでcross-script / unseen-language transferを評価しています。</p>
+<h2>Findings</h2>
+<p>一番大きな結果は、<strong>多くの条件でromanized pretrainingが最も強い</strong>ことです。IPAは概ねnative textより良いものの、全体としてはromanizationに届きません。</p>
+<p>特に印象に残ったのは次の点です。</p>
+<ul>
+<li>効果は特に<strong>異なるscript間やpretrainingで見ていない言語への転移</strong>で大きい。</li>
+<li>native textで事前学習したモデルに、downstreamだけromanizationを入れるのは同じ話ではない。すでにその言語/scriptを学習している場合は、むしろ性能がかなり落ちることもある。</li>
+<li>subword overlapが増えることだけでは結果を説明できない。IPAの方がoverlapが大きいlanguage pairでも、downstreamではromanizationが勝つケースがある。</li>
+<li>representationを変えるとトークン化効率も大きく変わる。同じ元corpusでもromanization/IPAではtoken列がかなり短くなるため、fixed token budgetなら、同じ計算量でより多くの元言語情報を見られる可能性がある。</li>
+</ul>
+<h2>私たちのコメント</h2>
+<p>今回の議論で一番気になったのは、<strong>「romanization」は実際には一つの操作/介入 (intervention) ではない</strong>という点です。</p>
+<p>Romanizationすると同時に、</p>
+<ul>
+<li>character inventory</li>
+<li>subword overlap</li>
+<li>sequence length/tokenizer fertility</li>
+<li>fixed computeあたりに見られるsource content量</li>
+<li>cognateや発音の近さの見え方</li>
+<li>native orthographyが持っていた区別の一部</li>
+</ul>
+<p>などがまとめて変わります。</p>
+<p>そのため、この論文から「related wordsが同じトークンを共有しやすくなるから転移が良くなる」と単純に言うのは少し強すぎると思いました。より安全なのは、<strong>romanized representationというbundleがcross-lingual transferにかなり有効だった</strong>という読みです。何が本当に効いているのかは、まだ混ざっています。</p>
+<p>また、romanizationを「共通した言語表現」と呼ぶことにも少し違和感があります。Romanizationが作るのは、まずは複数言語で共有しやすい<strong>coding space</strong>です。IPAなら音韻的な共通性に一段近づきますが、それでも表記も発音も違う同じ意味の語を直接そろえるわけではありません。</p>
+<p>ざっくり分けると、</p>
+<blockquote>
+<p>script normalization → phonological normalization → learned semantic abstraction</p>
+</blockquote>
+<p>という段階があり、romanizationは主に最初の段階に効くもの、と考える方がしっくりきます。</p>
+<p>もう一つ面白いのは、romanizationが一部の情報を意図せず潰していることです。異なるnative formが似たromanized formになると、モデルはcontextから区別しなければなりません。cross-lingual classificationではその区別が不要な情報かもしれませんが、固有名詞、綴り、native-script generationでは逆に重要になります。</p>
+<h2>次に知りたいこと</h2>
+<p>個人的に一番切り分けてみたいのは、</p>
+<blockquote>
+<p><strong>script equalizationの何が本当にtransfer gainを生んでいるのか？</strong></p>
+</blockquote>
+<p>という点です。</p>
+<p>例えば、native text / romanizationに加えて、トークン化効率だけを近づけた任意のreversible remappingを用意する。もし意味のないmappingでもromanizationと同程度に効くなら、shared coding spaceやcompute efficiencyが主因かもしれません。逆にromanizationが明確に勝つなら、cognateやphonological correspondenceのような言語学的に意味のあるalignmentが重要だと考えやすくなります。</p>
+<p>この論文から持ち帰りたいのは、「romanizationが強い」という結論そのものより、<strong>有限の予算の中で、多言語転移のために何を残し、何を潰し、何を共有させるべきか</strong>という問いです。</p>
+</div></article><footer><a href="../">← すべてのNotes</a></footer></div></body></html>
