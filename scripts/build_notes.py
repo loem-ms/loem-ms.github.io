@@ -25,6 +25,17 @@ def dstr(v):
     raise ValueError(f"invalid date: {v}")
 
 
+def dtstr(v):
+    if isinstance(v, datetime): return v.isoformat()
+    if isinstance(v, str):
+        try:
+            datetime.fromisoformat(v.replace("Z", "+00:00"))
+            return v
+        except ValueError:
+            pass
+    raise ValueError(f"invalid datetime: {v}")
+
+
 def esc(v): return html.escape(str(v), quote=True)
 
 
@@ -49,10 +60,16 @@ def load_notes(site):
             if not isinstance(paper["authors"],list) or not paper["authors"]: raise ValueError(f"{p}: paper authors must be a non-empty list")
         m["published_at"]=dstr(m["published_at"])
         m["updated_at"]=dstr(m["updated_at"]) if m.get("updated_at") else None
+        m["added_at"]=dtstr(m["added_at"]) if m.get("added_at") else None
         m["default_language"]=m.get("default_language",site["default_language"])
         m["dir"]=p.parent
         if m["status"]=="published": notes.append(m)
-    return sorted(notes,key=lambda x:(x["published_at"],x["slug"]),reverse=True)
+    def sort_key(n):
+        added=n.get("added_at")
+        if added:
+            return (1, datetime.fromisoformat(added.replace("Z", "+00:00")).timestamp(), n["slug"])
+        return (0, datetime.fromisoformat(n["published_at"] + "T00:00:00+00:00").timestamp(), n["slug"])
+    return sorted(notes,key=sort_key,reverse=True)
 
 
 def fonts():
@@ -148,7 +165,7 @@ def main():
             assets=n["dir"]/"assets"
             if assets.is_dir(): shutil.copytree(assets,d/"assets",dirs_exist_ok=True)
         d=OUT/n["slug"]; d.mkdir(parents=True,exist_ok=True); (d/"index.html").write_text(redirect(site,n),encoding="utf-8")
-    manifest={"default_language":site["default_language"],"languages":list(site["languages"]),"notes":[{k:n.get(k) for k in ("id","slug","published_at","updated_at","type","tags","languages","default_language","title","summary","paper")} | {"urls":{l:f'/notes/{l}/{n["slug"]}/' for l in n["languages"]}} for n in notes]}
+    manifest={"default_language":site["default_language"],"languages":list(site["languages"]),"notes":[{k:n.get(k) for k in ("id","slug","published_at","updated_at","added_at","type","tags","languages","default_language","title","summary","paper")} | {"urls":{l:f'/notes/{l}/{n["slug"]}/' for l in n["languages"]}} for n in notes]}
     (OUT/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(f"Built {len(notes)} note(s)")
 
