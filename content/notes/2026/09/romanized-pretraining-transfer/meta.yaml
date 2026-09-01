@@ -19,7 +19,7 @@ tags:
   - tokenization
 
 paper:
-  title: One Form to Transfer Them All: Pretraining Multilingual Language Models Beyond Native Orthography
+  title: "One Form to Transfer Them All: Pretraining Multilingual Language Models Beyond Native Orthography"
   authors:
     - Muge Zhang
     - Aaron Jencks
@@ -37,12 +37,12 @@ kicker:
 
 title:
   en: Does Romanization Really Help Multilingual Transfer?
-  ja: Romanizationは多言語Transferを本当に助けるのか
+  ja: Romanizationは言語間転移を本当に助けるのか
 
 summary:
   en: >-
     A short note on romanized multilingual pretraining, why it improves cross-script
     transfer, and why the mechanism may be more complicated than lexical overlap alone.
   ja: >-
-    Romanizationをpretrainingから使うとcross-script transferが強くなるという結果と、
-    その理由をlexical overlapだけでは説明しきれないのでは、という短いメモ。
+    Romanizationをpretrainingから使うと異なる文字体系間の言語間転移が強くなるという結果と、
+    その理由を語彙の重なりだけでは説明しきれないのでは、という短いメモ。
