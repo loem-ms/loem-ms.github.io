@@ -81,7 +81,9 @@ def index(site,notes,lang,root=False):
         if lang not in n["languages"]: continue
         tags=''.join(f'<span class="tag">{esc(t)}</span>' for t in n["tags"])
         rows.append(f'<a class="note-row" href="{prefix}{esc(n["slug"])}/"><div class="note-date">{n["published_at"]}</div><div><div class="note-title">{esc(n["title"][lang])}</div><div class="note-desc">{esc(n["summary"][lang])}</div><div class="note-tags">{tags}</div></div></a>')
-    body=f'''<!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell">{header(site,lang,"./",home,hrefs)}<main><section class="hero"><div class="kicker">{esc(cfg["notebook_kicker"])}</div><h1>Notes</h1><p class="deck">{esc(cfg["description"])}</p></section><div class="note-list">{"".join(rows)}</div></main><footer>Notes by Mengsay Loem · Tokyo</footer></div>'''
+    about=''.join(f'<p>{esc(p)}</p>' for p in cfg.get('about', []))
+    info=f'''<section class="about-notes"><div class="about-block"><div class="kicker">{esc(cfg.get("about_title","About these notes"))}</div>{about}</div><div class="about-block collaboration"><div class="kicker">{esc(cfg.get("collaboration_title","Collaboration"))}</div><p>{esc(cfg.get("collaboration",""))}</p></div></section>'''
+    body=f'''<!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell">{header(site,lang,"./",home,hrefs)}<main><section class="hero"><div class="kicker">{esc(cfg["notebook_kicker"])}</div><h1>Notes</h1><p class="deck">{esc(cfg["description"])}</p></section>{info}<div class="note-list">{"".join(rows)}</div></main><footer>Notes by Mengsay Loem · Tokyo</footer></div>'''
     canonical=site["base_url"].rstrip('/') + ('/notes/' if root else f'/notes/{lang}/')
     return doc(cfg["html_lang"],"Notes — Mengsay Loem",cfg["description"],css,body,f'<link rel="canonical" href="{canonical}">')
 
