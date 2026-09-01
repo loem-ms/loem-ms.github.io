@@ -6,10 +6,58 @@
   ],
   "notes": [
     {
+      "id": "romanized-pretraining-transfer",
+      "slug": "romanized-pretraining-transfer",
+      "published_at": "2026-09-01",
+      "updated_at": null,
+      "added_at": "2026-09-01T03:41:00+00:00",
+      "type": "paper-note",
+      "tags": [
+        "paper-reading",
+        "multilingual",
+        "llm",
+        "cross-lingual-transfer",
+        "romanization",
+        "tokenization"
+      ],
+      "languages": [
+        "en",
+        "ja"
+      ],
+      "default_language": "en",
+      "title": {
+        "en": "Does Romanization Really Help Multilingual Transfer?",
+        "ja": "Romanizationは言語間転移を本当に助けるのか"
+      },
+      "summary": {
+        "en": "A short note on romanized multilingual pretraining, why it improves cross-script transfer, and why the mechanism may be more complicated than lexical overlap alone.",
+        "ja": "Romanizationをpretrainingから使うと異なる文字体系間の言語間転移が強くなるという結果と、 その理由を語彙の重なりだけでは説明しきれないのでは、という短いメモ。"
+      },
+      "paper": {
+        "title": "One Form to Transfer Them All: Pretraining Multilingual Language Models Beyond Native Orthography",
+        "authors": [
+          "Muge Zhang",
+          "Aaron Jencks",
+          "Krishna Badikela",
+          "Yulia Tsvetkov",
+          "Sachin Kumar"
+        ],
+        "venue": "Conference on Empirical Methods in Natural Language Processing",
+        "venue_short": "EMNLP",
+        "year": 2026,
+        "url": "https://arxiv.org/abs/2608.25904"
+      },
+      "urls": {
+        "en": "/notes/en/romanized-pretraining-transfer/",
+        "ja": "/notes/ja/romanized-pretraining-transfer/"
+      }
+    },
+    {
       "id": "translationese-multilingual-llm",
       "slug": "translationese-multilingual-llm",
       "published_at": "2026-09-01",
       "updated_at": null,
+      "added_at": "2026-09-01T03:23:14+00:00",
       "type": "paper-note",
       "tags": [
         "paper-reading",
@@ -54,6 +102,7 @@
       "slug": "starting-notes",
       "published_at": "2026-09-01",
       "updated_at": null,
+      "added_at": "2026-09-01T01:56:45+00:00",
       "type": "meta",
       "tags": [
         "meta",
@@ -76,52 +125,6 @@
       "urls": {
         "en": "/notes/en/starting-notes/",
         "ja": "/notes/ja/starting-notes/"
-      }
-    },
-    {
-      "id": "romanized-pretraining-transfer",
-      "slug": "romanized-pretraining-transfer",
-      "published_at": "2026-09-01",
-      "updated_at": null,
-      "type": "paper-note",
-      "tags": [
-        "paper-reading",
-        "multilingual",
-        "llm",
-        "cross-lingual-transfer",
-        "romanization",
-        "tokenization"
-      ],
-      "languages": [
-        "en",
-        "ja"
-      ],
-      "default_language": "en",
-      "title": {
-        "en": "Does Romanization Really Help Multilingual Transfer?",
-        "ja": "Romanizationは言語間転移を本当に助けるのか"
-      },
-      "summary": {
-        "en": "A short note on romanized multilingual pretraining, why it improves cross-script transfer, and why the mechanism may be more complicated than lexical overlap alone.",
-        "ja": "Romanizationをpretrainingから使うと異なる文字体系間の言語間転移が強くなるという結果と、 その理由を語彙の重なりだけでは説明しきれないのでは、という短いメモ。"
-      },
-      "paper": {
-        "title": "One Form to Transfer Them All: Pretraining Multilingual Language Models Beyond Native Orthography",
-        "authors": [
-          "Muge Zhang",
-          "Aaron Jencks",
-          "Krishna Badikela",
-          "Yulia Tsvetkov",
-          "Sachin Kumar"
-        ],
-        "venue": "Conference on Empirical Methods in Natural Language Processing",
-        "venue_short": "EMNLP",
-        "year": 2026,
-        "url": "https://arxiv.org/abs/2608.25904"
-      },
-      "urls": {
-        "en": "/notes/en/romanized-pretraining-transfer/",
-        "ja": "/notes/ja/romanized-pretraining-transfer/"
       }
     }
   ]
