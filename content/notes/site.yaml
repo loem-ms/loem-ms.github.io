@@ -32,6 +32,9 @@ languages:
       project, or research collaboration, feel free to contact me. You are equally
       welcome to just try it yourself — and if you find something interesting, I
       would be very happy to hear what you learned.
+    search_placeholder: Search by title, summary, or tag
+    all_years: All years
+    no_results: No notes match these filters.
     all_notes: All Notes
     home: Home
   ja:
@@ -61,5 +64,8 @@ languages:
       もし面白いと思うものがあり、実験・プロジェクト・研究として一緒に進めてみたい場合は、
       ぜひ連絡してください。もちろん、そのまま自分で試していただくのも歓迎です。
       何か面白い発見があれば、あとで教えてもらえるとうれしいです。
+    search_placeholder: タイトル・概要・タグで検索
+    all_years: すべての年
+    no_results: 条件に一致するNoteはありません。
     all_notes: すべてのNotes
     home: Home
