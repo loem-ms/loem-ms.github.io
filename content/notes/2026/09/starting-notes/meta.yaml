@@ -1,0 +1,30 @@
+id: starting-notes
+slug: starting-notes
+published_at: 2026-09-01
+updated_at: null
+status: published
+type: meta
+default_language: en
+
+languages:
+  - en
+  - ja
+
+tags:
+  - meta
+  - research-notes
+
+kicker:
+  en: Kickoff
+  ja: Kickoff
+
+title:
+  en: Starting Notes
+  ja: Notesを始めます
+
+summary:
+  en: >-
+    A small kickoff for this new space — and a first test of how I want to
+    keep and share research notes.
+  ja: >-
+    研究メモを残し、共有するための新しい場所としてNotesを始めます。
