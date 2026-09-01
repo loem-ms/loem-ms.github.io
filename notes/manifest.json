@@ -30,6 +30,20 @@
         "en": "A short note on translationese in multilingual LLM generation, and a question that may be more useful than asking whether a model \"thinks in English.\"",
         "ja": "多言語LLMの直接生成に現れるtranslationeseと、「英語で考えているか」より 検証しやすそうな問いについての短いメモ。"
       },
+      "paper": {
+        "title": "An Investigation of Translationese in the Generations of Multilingual Large Language Models",
+        "authors": [
+          "Maria Valentini",
+          "Téa Wright",
+          "Julisa Granados",
+          "Eliana Colunga",
+          "Katharina von der Wense"
+        ],
+        "venue": "Conference on Language Modeling",
+        "venue_short": "COLM",
+        "year": 2026,
+        "url": "https://arxiv.org/abs/2608.17399"
+      },
       "urls": {
         "en": "/notes/en/translationese-multilingual-llm/",
         "ja": "/notes/ja/translationese-multilingual-llm/"
@@ -58,6 +72,7 @@
         "en": "A small kickoff for this new space — and a first test of how I want to keep and share research notes.",
         "ja": "研究メモを残し、共有するための新しい場所としてNotesを始めます。"
       },
+      "paper": null,
       "urls": {
         "en": "/notes/en/starting-notes/",
         "ja": "/notes/ja/starting-notes/"
