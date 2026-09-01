@@ -65,7 +65,7 @@ a { color: inherit; }
 .lang-switch span[aria-current='page'] { color: var(--ink); font-weight: 700; }
 .lang-switch .sep { color: var(--line); }
 
-.hero { padding: 68px 0 44px; }
+.hero { padding: 68px 0 36px; }
 .kicker {
   font-family: 'Space Mono', monospace;
   font-size: 10.5px;
@@ -87,6 +87,29 @@ h1 {
   font-size: 18px;
   line-height: 1.65;
   color: #3f3d38;
+}
+
+.about-notes {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 18px;
+  margin: 4px 0 42px;
+}
+.about-block {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,.22);
+}
+.about-block p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.about-block p:last-child { margin-bottom: 0; }
+.about-block.collaboration {
+  border-left: 3px solid var(--accent);
 }
 
 .note-list { margin-top: 20px; border-top: 1px solid var(--ink); }
@@ -148,12 +171,17 @@ footer {
   color: var(--faint);
 }
 
+@media (max-width: 720px) {
+  .about-notes { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 640px) {
   .shell { width: min(100% - 36px, 860px); padding-top: 34px; }
   .site-head { align-items: flex-start; }
   .head-actions { flex-direction: column; align-items: flex-end; gap: 6px; }
   .hero { padding-top: 48px; }
   .deck { font-size: 16.5px; }
+  .about-block { padding: 16px; }
   .note-row { grid-template-columns: 1fr; gap: 5px; }
   .article { padding-top: 48px; }
   .prose { font-size: 16px; }
