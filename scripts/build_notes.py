@@ -41,6 +41,12 @@ def load_notes(site):
             if lang not in site["languages"]: raise ValueError(f"{p}: unknown language {lang}")
             if not (p.parent/f"{lang}.md").exists(): raise ValueError(f"{p}: missing {lang}.md")
             if not m["title"].get(lang) or not m["summary"].get(lang): raise ValueError(f"{p}: missing localized metadata")
+        if m["type"] == "paper-note":
+            paper=m.get("paper")
+            if not isinstance(paper,dict): raise ValueError(f"{p}: paper-note requires paper metadata")
+            for k in ("title","authors","venue_short","year","url"):
+                if not paper.get(k): raise ValueError(f"{p}: paper metadata missing {k}")
+            if not isinstance(paper["authors"],list) or not paper["authors"]: raise ValueError(f"{p}: paper authors must be a non-empty list")
         m["published_at"]=dstr(m["published_at"])
         m["updated_at"]=dstr(m["updated_at"]) if m.get("updated_at") else None
         m["default_language"]=m.get("default_language",site["default_language"])
@@ -99,6 +105,16 @@ def index(site,notes,lang,root=False):
     return doc(cfg["html_lang"],"Notes — Mengsay Loem",cfg["description"],css,body,f'<link rel="canonical" href="{canonical}">')
 
 
+def paper_ref(n):
+    paper=n.get("paper")
+    if not paper: return ""
+    first=str(paper["authors"][0]).strip().split()[-1]
+    author_label=f"{first} et al." if len(paper["authors"]) > 1 else first
+    venue=paper.get("venue_short") or paper.get("venue") or ""
+    compact=" · ".join(x for x in (author_label, f'{venue} {paper["year"]}'.strip()) if x)
+    return f'''<a class="paper-ref" href="{esc(paper["url"])}" target="_blank" rel="noopener"><span class="paper-ref-label">Paper</span><span class="paper-ref-main"><span class="paper-ref-title">{esc(paper["title"])}</span><span class="paper-ref-cite">{esc(compact)} ↗</span></span></a>'''
+
+
 def article(site,n,lang):
     cfg=site["languages"][lang]; slug=n["slug"]
     md=mistune.create_markdown(plugins=["table"])((n["dir"]/f"{lang}.md").read_text(encoding="utf-8"))
@@ -107,7 +123,8 @@ def article(site,n,lang):
     alts+=f'<link rel="canonical" href="{site["base_url"]}/notes/{lang}/{slug}/">'
     kicker=n.get("kicker",{}).get(lang,n["type"].replace('-',' ').title()) if isinstance(n.get("kicker",{}),dict) else n["type"]
     meta=n["published_at"] + (f' · updated {n["updated_at"]}' if n.get("updated_at") else '') + ' · ' + ' / '.join(n["tags"])
-    body=f'''<!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell">{header(site,lang,"../","../../../",hrefs)}<article class="article"><header class="article-head"><div class="kicker">{esc(kicker)}</div><h1>{esc(n["title"][lang])}</h1><div class="meta">{esc(meta)}</div></header><div class="prose">{md}</div></article><footer><a href="../">← {esc(cfg["all_notes"])}</a></footer></div>'''
+    ref=paper_ref(n)
+    body=f'''<!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell">{header(site,lang,"../","../../../",hrefs)}<article class="article"><header class="article-head"><div class="kicker">{esc(kicker)}</div><h1>{esc(n["title"][lang])}</h1><div class="meta">{esc(meta)}</div>{ref}</header><div class="prose">{md}</div></article><footer><a href="../">← {esc(cfg["all_notes"])}</a></footer></div>'''
     return doc(cfg["html_lang"],f'{n["title"][lang]} — Mengsay Loem',n["summary"][lang],"../../style.css",body,alts)
 
 
@@ -131,7 +148,7 @@ def main():
             assets=n["dir"]/"assets"
             if assets.is_dir(): shutil.copytree(assets,d/"assets",dirs_exist_ok=True)
         d=OUT/n["slug"]; d.mkdir(parents=True,exist_ok=True); (d/"index.html").write_text(redirect(site,n),encoding="utf-8")
-    manifest={"default_language":site["default_language"],"languages":list(site["languages"]),"notes":[{k:n.get(k) for k in ("id","slug","published_at","updated_at","type","tags","languages","default_language","title","summary")} | {"urls":{l:f'/notes/{l}/{n["slug"]}/' for l in n["languages"]}} for n in notes]}
+    manifest={"default_language":site["default_language"],"languages":list(site["languages"]),"notes":[{k:n.get(k) for k in ("id","slug","published_at","updated_at","type","tags","languages","default_language","title","summary","paper")} | {"urls":{l:f'/notes/{l}/{n["slug"]}/' for l in n["languages"]}} for n in notes]}
     (OUT/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(f"Built {len(notes)} note(s)")
 
