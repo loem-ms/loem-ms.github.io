@@ -1,0 +1,26 @@
+base_url: https://loem-ms.github.io
+default_language: en
+
+languages:
+  en:
+    label: EN
+    html_lang: en
+    notebook_kicker: Research notebook
+    title: Notes
+    description: >-
+      A public notebook for paper-reading memos, research thoughts, and things
+      I want to think through a little further. Mostly around NLP, AI,
+      multilinguality, and evaluation.
+    all_notes: All Notes
+    home: Home
+  ja:
+    label: 日本語
+    html_lang: ja
+    notebook_kicker: Research notebook
+    title: Notes
+    description: >-
+      論文を読んで考えたこと、研究上のメモ、方法論についての気づき、
+      まだ形になっていないアイデアなどを残すための公開ノートです。
+      NLP・AI・多言語・評価あたりの話題を中心に書いていきます。
+    all_notes: すべてのNotes
+    home: Home
