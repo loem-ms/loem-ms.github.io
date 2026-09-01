@@ -1,5 +1,3 @@
-I recently read **An Investigation of Translationese in the Generations of Multilingual Large Language Models** ([arXiv:2608.17399](https://arxiv.org/abs/2608.17399)).
-
 ## The question
 
 Multilingual LLMs can generate fluent text in many languages, but their training data and post-training are often heavily influenced by English and translated text. This paper asks whether that influence is visible in the final output: **when a model generates directly in another language, does the text still look statistically like a translation?**
