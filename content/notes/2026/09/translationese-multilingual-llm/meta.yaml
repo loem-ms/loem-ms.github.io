@@ -16,6 +16,19 @@ tags:
   - llm
   - translationese
 
+paper:
+  title: An Investigation of Translationese in the Generations of Multilingual Large Language Models
+  authors:
+    - Maria Valentini
+    - Téa Wright
+    - Julisa Granados
+    - Eliana Colunga
+    - Katharina von der Wense
+  venue: Conference on Language Modeling
+  venue_short: COLM
+  year: 2026
+  url: https://arxiv.org/abs/2608.17399
+
 kicker:
   en: Paper note
   ja: Paper note
