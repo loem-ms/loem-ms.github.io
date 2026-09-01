@@ -11,6 +11,27 @@ languages:
       A public notebook for paper-reading memos, research thoughts, and things
       I want to think through a little further. Mostly around NLP, AI,
       multilinguality, and evaluation.
+    about_title: How these notes are made
+    about:
+      - >-
+        Most notes here begin as drafts generated with GenAI from logs of my own
+        paper-reading discussions. For a typical paper, I spend roughly 10–20
+        turns discussing it from my own research interests and perspective:
+        questioning interpretations, making connections to related work, and
+        exploring possible follow-up ideas. GenAI then helps turn that discussion
+        into an initial draft; I review, revise, and decide what is finally published.
+      - >-
+        These notes are therefore not unreviewed model outputs, nor are they meant
+        to be neutral summaries of the papers. GenAI is mainly a tool for discussion,
+        drafting, and structuring; the published text reflects my own interpretation,
+        interests, and final editorial decisions.
+    collaboration_title: Ideas are open invitations
+    collaboration: >-
+      At the end of many notes, I may leave ideas or possible research directions.
+      If one catches your interest and you would like to turn it into an experiment,
+      project, or research collaboration, feel free to contact me. You are equally
+      welcome to just try it yourself — and if you find something interesting, I
+      would be very happy to hear what you learned.
     all_notes: All Notes
     home: Home
   ja:
@@ -22,5 +43,23 @@ languages:
       論文を読んで考えたこと、研究上のメモ、方法論についての気づき、
       まだ形になっていないアイデアなどを残すための公開ノートです。
       NLP・AI・多言語・評価あたりの話題を中心に書いていきます。
+    about_title: このNotesについて
+    about:
+      - >-
+        ここにあるメモの多くは、論文を読みながらGenAIと行った議論ログをもとに、
+        GenAIに初稿を作らせるところから始まります。1本の論文につき、私自身の研究上の
+        関心や視点から問い直したり、解釈を検討したり、関連研究との接続や次のアイデアを
+        考えたりするやり取りを、平均して10〜20ターンほど行っています。そのログを材料に
+        初稿を生成し、その後は私自身が内容を確認・修正し、最終的に公開する文章を決めています。
+      - >-
+        したがって、これらは未レビューのAI出力でも、論文の中立的な要約を目指したものでも
+        ありません。GenAIは主に議論の相手、整理、ドラフト作成のために使っており、公開される
+        内容には私自身の解釈・関心・問題意識と最終的な編集判断が反映されています。
+    collaboration_title: アイデアは開いておきます
+    collaboration: >-
+      各Noteの末尾には、そこから派生したアイデアや研究の方向性を置くことがあります。
+      もし面白いと思うものがあり、実験・プロジェクト・研究として一緒に進めてみたい場合は、
+      ぜひ連絡してください。もちろん、そのまま自分で試していただくのも歓迎です。
+      何か面白い発見があれば、あとで教えてもらえるとうれしいです。
     all_notes: すべてのNotes
     home: Home
