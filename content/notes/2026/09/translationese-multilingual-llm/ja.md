@@ -1,5 +1,3 @@
-最近、**An Investigation of Translationese in the Generations of Multilingual Large Language Models** ([arXiv:2608.17399](https://arxiv.org/abs/2608.17399)) を読みました。
-
 ## どんな問いか
 
 多言語LLMはさまざまな言語で自然な文章を生成できますが、学習データやpost-trainingは英語や翻訳文の影響を強く受けています。この論文が見ているのは、その影響が最終出力にも現れるのか、つまり **明示的に翻訳させていなくても、直接生成した文章に「翻訳文らしさ（translationese）」が残るのか** という点です。
