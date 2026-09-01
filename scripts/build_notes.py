@@ -70,20 +70,31 @@ def header(site,lang,brand,home,hrefs):
     return f'''<header class="site-head"><a class="brand" href="{brand}"><span class="brand-name">Mengsay Loem</span><span class="brand-sep">/</span><span class="brand-section">Notes</span></a><div class="head-actions"><div class="lang-switch">{switch(site,lang,hrefs)}</div><a class="home-link" href="{home}">{esc(site["languages"][lang]["home"])}</a></div></header>'''
 
 
+def filter_script(empty_text):
+    return f'''<script>(()=>{{const input=document.getElementById('note-search');const year=document.getElementById('note-year');const rows=Array.from(document.querySelectorAll('.note-row'));const count=document.getElementById('note-count');const empty=document.getElementById('note-empty');function apply(){{const q=(input.value||'').trim().toLocaleLowerCase();const y=year.value;let shown=0;rows.forEach(row=>{{const okYear=!y||row.dataset.year===y;const okText=!q||row.textContent.toLocaleLowerCase().includes(q);const visible=okYear&&okText;row.hidden=!visible;if(visible)shown++;}});count.textContent=shown+' / '+rows.length;empty.hidden=shown!==0;}}input.addEventListener('input',apply);year.addEventListener('change',apply);apply();}})();</script>'''
+
+
 def index(site,notes,lang,root=False):
     cfg=site["languages"][lang]
     if root:
         css="./style.css"; home="../"; prefix=f"./{lang}/"; hrefs={c:("./" if c==lang else f"./{c}/") for c in site["languages"]}
     else:
         css="../style.css"; home="../../"; prefix="./"; hrefs={c:("./" if c==lang else f"../{c}/") for c in site["languages"]}
+    localized=[n for n in notes if lang in n["languages"]]
     rows=[]
-    for n in notes:
-        if lang not in n["languages"]: continue
+    for n in localized:
         tags=''.join(f'<span class="tag">{esc(t)}</span>' for t in n["tags"])
-        rows.append(f'<a class="note-row" href="{prefix}{esc(n["slug"])}/"><div class="note-date">{n["published_at"]}</div><div><div class="note-title">{esc(n["title"][lang])}</div><div class="note-desc">{esc(n["summary"][lang])}</div><div class="note-tags">{tags}</div></div></a>')
+        year=n["published_at"][:4]
+        rows.append(f'<a class="note-row" data-year="{year}" href="{prefix}{esc(n["slug"])}/"><div class="note-date">{n["published_at"]}</div><div><div class="note-title">{esc(n["title"][lang])}</div><div class="note-desc">{esc(n["summary"][lang])}</div><div class="note-tags">{tags}</div></div></a>')
+    years=sorted({n["published_at"][:4] for n in localized}, reverse=True)
+    year_options=''.join(f'<option value="{y}">{y}</option>' for y in years)
+    search_placeholder=cfg.get("search_placeholder","Search notes")
+    all_years=cfg.get("all_years","All years")
+    empty_text=cfg.get("no_results","No notes match these filters.")
+    filters=f'''<div class="note-tools"><input id="note-search" class="note-search" type="search" autocomplete="off" placeholder="{esc(search_placeholder)}" aria-label="{esc(search_placeholder)}"><select id="note-year" class="note-year" aria-label="{esc(all_years)}"><option value="">{esc(all_years)}</option>{year_options}</select><span id="note-count" class="note-count" aria-live="polite"></span></div>'''
     about=''.join(f'<p>{esc(p)}</p>' for p in cfg.get('about', []))
     info=f'''<section class="about-notes"><div class="about-block"><div class="kicker">{esc(cfg.get("about_title","About these notes"))}</div>{about}</div><div class="about-block collaboration"><div class="kicker">{esc(cfg.get("collaboration_title","Collaboration"))}</div><p>{esc(cfg.get("collaboration",""))}</p></div></section>'''
-    body=f'''<!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell">{header(site,lang,"./",home,hrefs)}<main><section class="hero"><div class="kicker">{esc(cfg["notebook_kicker"])}</div><h1>Notes</h1><p class="deck">{esc(cfg["description"])}</p></section>{info}<div class="note-list">{"".join(rows)}</div></main><footer>Notes by Mengsay Loem · Tokyo</footer></div>'''
+    body=f'''<!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell">{header(site,lang,"./",home,hrefs)}<main><section class="hero"><div class="kicker">{esc(cfg["notebook_kicker"])}</div><h1>Notes</h1><p class="deck">{esc(cfg["description"])}</p></section>{info}{filters}<div class="note-list">{"".join(rows)}</div><p id="note-empty" class="note-empty" hidden>{esc(empty_text)}</p></main><footer>Notes by Mengsay Loem · Tokyo</footer></div>{filter_script(empty_text)}'''
     canonical=site["base_url"].rstrip('/') + ('/notes/' if root else f'/notes/{lang}/')
     return doc(cfg["html_lang"],"Notes — Mengsay Loem",cfg["description"],css,body,f'<link rel="canonical" href="{canonical}">')
 
