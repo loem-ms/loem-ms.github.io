@@ -6,6 +6,50 @@
   ],
   "notes": [
     {
+      "id": "repetition-mismatch",
+      "slug": "repetition-mismatch",
+      "published_at": "2026-11-20",
+      "updated_at": null,
+      "added_at": "2026-11-20T03:05:00+00:00",
+      "type": "paper-note",
+      "tags": [
+        "paper-reading",
+        "pretraining",
+        "data-mixtures",
+        "evaluation"
+      ],
+      "languages": [
+        "en",
+        "ja"
+      ],
+      "default_language": "en",
+      "title": {
+        "en": "Match the Repetitions, Not Just the Mixture",
+        "ja": "混合比だけでなく、繰り返し回数も揃える"
+      },
+      "summary": {
+        "en": "A short note on repetition mismatch in pre-training data-mixture experiments: why the best mixture at a small budget can change at the target budget, and how downsampling to preserve repetitions makes small experiments predictive again.",
+        "ja": "小規模なデータ混合実験が目標予算でずれる原因は繰り返し回数の不一致にあるという論文の短いメモで、繰り返しを保存するダウンサンプリングにより予測が戻ることを確認する。"
+      },
+      "paper": {
+        "title": "Repetition Mismatch: Why Data Mixture Experiments Don’t Scale and How to Fix Them",
+        "authors": [
+          "Kevin Zhou",
+          "Lisa Alazraki",
+          "Kris Cao",
+          "Marek Rei"
+        ],
+        "venue": "Conference on Empirical Methods in Natural Language Processing",
+        "venue_short": "EMNLP",
+        "year": 2026,
+        "url": "https://aclanthology.org/2026.emnlp-main.1713/"
+      },
+      "urls": {
+        "en": "/notes/en/repetition-mismatch/",
+        "ja": "/notes/ja/repetition-mismatch/"
+      }
+    },
+    {
       "id": "romanized-pretraining-transfer",
       "slug": "romanized-pretraining-transfer",
       "published_at": "2026-09-01",

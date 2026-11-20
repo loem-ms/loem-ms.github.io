@@ -1,0 +1,27 @@
+<!DOCTYPE html><!-- Generated from content/notes/ by scripts/build_notes.py --><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>混合比だけでなく、繰り返し回数も揃える — Mengsay Loem</title><meta name="description" content="小規模なデータ混合実験が目標予算でずれる原因は繰り返し回数の不一致にあるという論文の短いメモで、繰り返しを保存するダウンサンプリングにより予測が戻ることを確認する。"><link rel="canonical" href="https://loem-ms.github.io/notes/ja/repetition-mismatch/"><meta property="og:url" content="https://loem-ms.github.io/notes/ja/repetition-mismatch/"><meta property="og:type" content="website"><meta property="og:title" content="混合比だけでなく、繰り返し回数も揃える — Mengsay Loem"><meta property="og:description" content="小規模なデータ混合実験が目標予算でずれる原因は繰り返し回数の不一致にあるという論文の短いメモで、繰り返しを保存するダウンサンプリングにより予測が戻ることを確認する。"><meta property="og:site_name" content="Mengsay Loem"><link rel="alternate" hreflang="en" href="https://loem-ms.github.io/notes/en/repetition-mismatch/"><link rel="alternate" hreflang="ja" href="https://loem-ms.github.io/notes/ja/repetition-mismatch/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Khmer:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/site.css"><link rel="stylesheet" href="/notes/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><div class="wrap topbar-inner"><a class="wordmark" href="/">Mengsay Loem</a><nav class="topnav" aria-label="Main"><a href="/publications/">Publications</a><a href="/projects/">Projects</a><a href="/notes/" aria-current="page">Notes</a><a href="/cv/">CV</a></nav><div class="lang-switch"><a href="/notes/en/repetition-mismatch/" hreflang="en">EN</a><span class="sep">/</span><span aria-current="page">日本語</span></div></div></header><main id="main" class="wrap"><article class="article"><header class="article-head"><div class="kicker">Paper note</div><h1>混合比だけでなく、繰り返し回数も揃える</h1><div class="meta">2026-11-20 · paper-reading / pretraining / data-mixtures / evaluation</div><div class="paper-ref"><span class="paper-ref-label">Reading</span><div><a class="paper-ref-title" href="https://aclanthology.org/2026.emnlp-main.1713/" target="_blank" rel="noopener">Repetition Mismatch: Why Data Mixture Experiments Don’t Scale and How to Fix Them ↗</a><span class="paper-ref-cite">Zhou et al. · EMNLP 2026</span></div></div></header><div class="prose"><h2>どんな問いか</h2>
+<p>事前学習のデータ混合比は、通常は小規模な実験で調整し、勝った混合比を目標の学習予算にそのまま外挿します。ところが高品質なデータが乏しい場合、そのデータは何度も繰り返して使うことになり、予算が大きくなるほど小さなソースの繰り返し回数は増えていきます。</p>
+<p>この論文が問うのは、その繰り返し回数の変化自体が、小規模実験がスケールしない原因ではないか、という点です。<strong>短いproxy実験では見えない形で、希少なソースの繰り返し率が予算とともに変わり、最適な混合比がずれてしまうのではないか。</strong></p>
+<p>この問いは、データが乏しい場面でこそ重要です。たとえば多言語の混合で、母語などの高品質データを繰り返しサンプリングしなければならない場合がそうです。</p>
+<h2>Findings</h2>
+<p>提案される修正はシンプルです。素朴にサブサンプルするのではなく、ソースの文書数と学習トークン数を比例的に減らし、<strong>小規模実験におけるソースごとの繰り返し回数を、目標の実行と一致させる</strong>のです。この論文の貢献は、サブサンプリング自体の発明ではなく、repetition mismatch（繰り返しの不一致）を混合実験の交絡要因として切り分けたことにあります。</p>
+<p>特に印象に残ったのは次の点です。</p>
+<ul>
+<li>1.17Bパラメータでは、WikiText/FineWeb混合の予測誤差が、目標の1/16のトークン量で行った繰り返し制御ありの実験1回で、0.85から0.10まで下がります（Table 1）。繰り返し制御なしで同等の精度を得るには複数の学習ホライズンが必要で、2・3・4ホライズンで目標トークン量の19%・44%・94%を消費します。</li>
+<li>ソースが3つの場合（757Mパラメータ）でも、繰り返し制御ありのホライズン2回で、テストした掃引の分解能では最適な混合比を回復できます（Table 2）。ただし30Mモデルは例外で、proxyモデルのスケールも依然として重要です。</li>
+<li>根拠には明確な限界もあります。モデルは最大1.17Bパラメータ、学習は約3.8Bトークンまで、多くの設定は単一シードで、比較対象は線形外挿に依存しています。</li>
+</ul>
+<h2>私たちのコメント</h2>
+<p>視点として持ち帰りたいのは、<strong>繰り返し回数を、混合比やトークン予算と並ぶ実験の第一級の変数として扱う</strong>ことです。データが限られていることの副作用として片づけない方がいいと思います。</p>
+<p>低リソースの事前学習には直接関係しそうです。乏しい母語データを何度も繰り返す必要があるとき、その繰り返しの regime を再現していない小さなパイロットは、実際に学習する混合比とは静かに別のものをテストしています。パイロットの順位を信じる前に、繰り返しを揃えるのは安く追加できる統制です。</p>
+<p>一方で、結果を広く読みすぎないための留保も2つあります。</p>
+<ul>
+<li>示されている改善はキュレーションされたドメインの検証損失上のもので、それ自体では下流タスクの能力向上を保証しません。</li>
+<li>1/16という数字は1つの学習ホライズンの話で、実験全体のコストではありません。混合比と学習率の実行は複数回残ります（Appendix E）。つまり繰り返しの一致は予測のコストを下げるもので、混合比探索そのものを安くするわけではありません。</li>
+</ul>
+<h2>次に知りたいこと</h2>
+<p>見てみたいのは、多言語またはコードデータの混合での、繰り返しを揃えたパイロット実験です。</p>
+<blockquote>
+<p><strong>希少なソースが「言語」である場合にも繰り返しの一致は効くのか。そして検証損失だけでなく、下流の評価でも成り立つのか。</strong></p>
+</blockquote>
+<p>測るべきトレードオフもあります。繰り返しを保存するということは、パイロットで使えるユニークなデータを減らすということです。その犠牲が非常に小さい予算でも見合うかどうかは、Figure 2、Tables 1–2、そしてAppendix Eのコスト計算を使って、実行前にスケッチできるはずです。</p>
+</div><p class="back"><a href="/notes/ja/">← すべてのNotes</a></p></article></main><footer class="site-foot"><div class="wrap foot-inner"><span>Mengsay Loem · Tokyo, Japan</span><span class="foot-links"><a href="https://scholar.google.com/citations?user=EoYd7EEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><a href="https://github.com/loem-ms" target="_blank" rel="noopener">GitHub</a><a href="https://twitter.com/loem_ms" target="_blank" rel="noopener">X</a><a href="mailto:mengsaylms@gmail.com">Email</a></span></div></footer></body></html>
