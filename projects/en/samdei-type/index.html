@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Samdei Type — Mengsay Loem</title><meta name="description" content="Open models that turn romanized Khmer, the Latin spelling many Cambodians use in chat, into Khmer script. Small enough for a phone keyboard, and released with all their training data and a new benchmark of everyday messages."><link rel="alternate" hreflang="en" href="https://loem-ms.github.io/projects/en/samdei-type/"><link rel="alternate" hreflang="ja" href="https://loem-ms.github.io/projects/ja/samdei-type/"><link rel="canonical" href="https://loem-ms.github.io/projects/en/samdei-type/"><meta property="og:type" content="website"><meta property="og:title" content="Samdei Type — Mengsay Loem"><meta property="og:description" content="Open models that turn romanized Khmer, the Latin spelling many Cambodians use in chat, into Khmer script. Small enough for a phone keyboard, and released with all their training data and a new benchmark of everyday messages."><meta property="og:url" content="https://loem-ms.github.io/projects/en/samdei-type/"><meta property="og:image" content="https://loem-ms.github.io/projects/samdei-type/assets/cover.jpg"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+Khmer:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../style.css"></head><body><!-- Generated from content/projects/ by scripts/build_projects.py --><div class="shell"><header class="site-head"><a class="brand" href="../"><span class="brand-name">Mengsay Loem</span><span class="brand-sep">/</span><span class="brand-section">Projects</span></a><div class="head-actions"><div class="lang-switch"><span aria-current="page">EN</span><span class="sep">/</span><a href="../../ja/samdei-type/">日本語</a></div><a class="home-link" href="../../../">Home</a></div></header><article class="article"><header class="article-head"><div class="project-meta"><span class="stage stage-released">Released</span><span>Samdei Labs · Nov 2026</span></div><h1>Samdei Type</h1><p class="deck">Open models that turn romanized Khmer, the Latin spelling many Cambodians use in chat, into Khmer script. Small enough for a phone keyboard, and released with all their training data and a new benchmark of everyday messages.</p><div class="project-links"><a href="https://github.com/Samdei-Labs/samdei-type" target="_blank" rel="noopener">GitHub ↗</a><a href="https://huggingface.co/collections/samdei/samdei-type-romanized-khmer-khmer-script" target="_blank" rel="noopener">Hugging Face ↗</a><a href="https://github.com/Samdei-Labs/samdei-type/blob/main/paper/samdei-type.pdf" target="_blank" rel="noopener">Technical report (PDF) ↗</a><a href="https://huggingface.co/blog/mengsay/samdei-type" target="_blank" rel="noopener">Release article ↗</a><a href="https://pypi.org/project/samdei-type/" target="_blank" rel="noopener">PyPI ↗</a></div><div class="facts"><div class="fact"><div class="fact-value">7.1M / 18.2M</div><div class="fact-label">parameters, Mini / Base</div></div><div class="fact"><div class="fact-value">0.052</div><div class="fact-label">character error rate of Base on Samdei Type Bench</div></div><div class="fact"><div class="fact-value">2,155</div><div class="fact-label">everyday messages and words in the benchmark</div></div><div class="fact"><div class="fact-value">~5 ms</div><div class="fact-label">per input for Mini on one CPU thread</div></div></div></header><figure class="project-hero"><img src="../../samdei-type/assets/cover.jpg" alt="Samdei Type v0.1: knhom jong tov phsar becomes ខ្ញុំចង់ទៅផ្សារ. Samdei Type Mini, 7.1M parameters, for a phone keyboard; Samdei Type Base, 18.2M parameters."></figure><div class="prose"><h2>Khmer, typed in Latin letters</h2>
+<p>Khmer has its own script, yet many Cambodians chat in Khmer typed with Latin letters. The habit spread when few phones could type Khmer script, and it is still common on phones and social media. It is quick to type on any keyboard, but it has no standard spelling: <code>knhom</code>, <code>khnhom</code>, <code>kyom</code> and just <code>nh</code> all mean ខ្ញុំ (&quot;I&quot;). People drop vowels, glue or split words, and mix in English: <code>ot mean wifi te</code> is អត់មាន wifi ទេ.</p>
+<p>Messages written this way are hard to read, and tools built for Khmer script, from word segmenters to search, cannot process them. Mainstream input tools don't help either: Gboard has transliteration layouts for Lao and Sinhala, but none for Khmer.</p>
+<p>A converter from romanized Khmer to Khmer script has two uses. Inside a keyboard, it turns what people already type into Khmer script, offline and within milliseconds. Outside a keyboard, it shows someone else's romanized message in Khmer script. Samdei Type does both with one small model:</p>
+<figure class="phone">
+  <img src="../../samdei-type/assets/demo.gif" alt="Samdei Type Mini in a chat. Part 1, typing: tos tov leng takeo hob bongkong boeng becomes តោះទៅលេងតាកែវ ហូបបង្កងបឹង key by key. Part 2, reading: a friend sends the same message in Latin letters, and one tap shows it in Khmer script." loading="lazy">
+  <figcaption>Samdei Type Mini converts one message as it is typed, and again when a friend sends it in Latin letters. Every conversion shown is a real output of the released model.</figcaption>
+</figure>
+
+<h2>The idea: separate what is written from how it is spelled</h2>
+<p>To learn this, a model needs pairs of romanized text and Khmer script. Such pairs are scarce, even though Khmer-script text is plentiful. The open models I found learn their spellings mainly from one source each, a word list or a rule-based generator, and inherit that source's habits.</p>
+<p>So I split a training pair into its two halves. The Khmer side, <em>what is written</em>, is always a real sentence, so the target is correct by construction. The Latin side, <em>how it is spelled</em>, comes from several small and imperfect sources, each biased in its own way, so the model does not learn just one source's habits. Here is one sentence, ខ្ញុំចង់ទៅផ្សារ (&quot;I want to go to the market&quot;), spelled by different sources:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>Romanized spelling</th>
+  <th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>knhom jong tou bsa</code></td>
+  <td>persona generator, careful typist</td>
+</tr>
+<tr>
+  <td><code>khnhom chong tov phsear</code></td>
+  <td>spelling table mined from a public word list</td>
+</tr>
+<tr>
+  <td><code>kyom jong tow phsar</code></td>
+  <td>persona generator, mixed habits</td>
+</tr>
+<tr>
+  <td><code>nh jg tv psa</code></td>
+  <td>persona generator, lazy typist</td>
+</tr>
+</tbody>
+</table></div>
+<p>The sources are:</p>
+<ul>
+<li>a rule-based generator that spells like four typing personas and adds noise such as dropped vowels, glued words and typos;</li>
+<li>spelling tables mined from public lists of romanized Khmer words;</li>
+<li>romanizations of real sentences written by an LLM (Gemma 4, run locally);</li>
+<li>abbreviated copies (<code>tov</code> → <code>tv</code>) and stretched letters (<code>tovvv</code>) for casual chat.</li>
+</ul>
+<h2>Training: from broad to specific</h2>
+<p>A small character-level Transformer is first pretrained on mostly generator-made pairs (12.8M pairs for Base, 6.5M for Mini). Two short stages then bring in the other sources: chat-like pairs, then casual register. Pretraining teaches words; the chat-like stage is what teaches whole sentences. Training took about 3 hours for Mini and 6 hours for Base, on one laptop GPU.</p>
+<p>At decoding time, the beam-search candidates are reranked with a word language model. Base also uses a character language model and a reverse model, which checks that a candidate explains all of the input.</p>
+<h2>A benchmark of everyday messages</h2>
+<p>There was no public test set of everyday romanized messages: the open models were tested on held-out parts of their own training source, and the real-chat tests I knew of had fewer than 40 sentences. So I built <strong>Samdei Type Bench</strong>: 2,155 everyday messages and words over designed scenes, mostly LLM drafts audited by native speakers, whom I thank for their reviews. No Samdei Type model was trained, selected or tuned on it.</p>
+<p>On it, both models beat the best existing open model. Lower character error rate (CER) is better:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>System</th>
+  <th>Parameters</th>
+  <th>CER</th>
+  <th>Exact match</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Samdei Type Base</strong></td>
+  <td>18.2M</td>
+  <td><strong>0.052</strong></td>
+  <td><strong>30%</strong></td>
+</tr>
+<tr>
+  <td><strong>Samdei Type Mini</strong></td>
+  <td>7.1M</td>
+  <td>0.058</td>
+  <td>24%</td>
+</tr>
+<tr>
+  <td>Akkhara-mini, in 6-word pieces</td>
+  <td>17.8M</td>
+  <td>0.066</td>
+  <td>23%</td>
+</tr>
+<tr>
+  <td>AkaraAlpha</td>
+  <td>0.08M</td>
+  <td>0.281</td>
+  <td>2%</td>
+</tr>
+</tbody>
+</table></div>
+<p>Mini is also fast. As int8 ONNX on one CPU thread of an Apple M5 Pro, it takes about 5 ms per input, or 5.7 ms per keystroke with reranking.</p>
+<h2>What is released</h2>
+<p>Everything is open, in one <a href="https://huggingface.co/collections/samdei/samdei-type-romanized-khmer-khmer-script">Hugging Face collection</a>, with the inference code on <a href="https://github.com/Samdei-Labs/samdei-type">GitHub</a>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>Release</th>
+  <th>What it is</th>
+  <th>License</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="https://huggingface.co/samdei/samdei-type-mini">samdei-type-mini</a></td>
+  <td>On-device model: 7 MiB as int8 ONNX, plus a 1.2 MiB word LM</td>
+  <td>Apache-2.0</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/samdei/samdei-type-base">samdei-type-base</a></td>
+  <td>The most accurate open model, with its reranking models</td>
+  <td>Apache-2.0</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/samdei/samdei-type-mini-pretrained">mini-pretrained</a>, <a href="https://huggingface.co/samdei/samdei-type-base-pretrained">base-pretrained</a></td>
+  <td>Pretrained checkpoints, to fine-tune your own converter</td>
+  <td>Apache-2.0</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/datasets/samdei/samdei-type-bench">samdei-type-bench</a></td>
+  <td>Samdei Type Bench, with human-checked Khmer</td>
+  <td>CC BY 4.0</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/datasets/samdei/samdei-type-pretraining-data">pretraining-data</a>, <a href="https://huggingface.co/datasets/samdei/samdei-type-finetuning-data">finetuning-data</a></td>
+  <td>The exact training pairs of every stage</td>
+  <td>CC BY-SA 4.0</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/datasets/samdei/samdei-type-resources">samdei-type-resources</a></td>
+  <td>LLM-written chat sentences, mined spelling tables, lexicons</td>
+  <td>per file</td>
+</tr>
+</tbody>
+</table></div>
+<p>The models load with the <code>transformers</code> library alone. For the best quality, the <code>samdei-type</code> package adds the reranking:</p>
+<pre><code class="language-bash">pip install &quot;samdei-type[deploy]&quot;
+samdei-type &quot;knhom jong tov phsar&quot;    # ខ្ញុំចង់ទៅផ្សារ
+</code></pre>
+<p>The method and every number are in the <a href="https://github.com/Samdei-Labs/samdei-type/blob/main/paper/samdei-type.pdf">technical report</a>, and the release is introduced in the <a href="https://huggingface.co/blog/mengsay/samdei-type">Hugging Face article</a>. The benchmark, the data and the training recipe are open so that anyone working on romanized Khmer, or on Khmer language technology more broadly, can use them, build on them and improve on them.</p>
+<h2>Limitations</h2>
+<ul>
+<li>Every romanized input seen in training is synthetic. Real typing appears only in the evaluation.</li>
+<li>Homophones that need more context than the next word stay hard: ដើរ / ដែរ (<code>der</code>), ដឹក / ដែក / ដេក (<code>dek</code>).</li>
+<li>Loanwords typed in English (<code>check</code> for ឆែក) stay in English.</li>
+<li>The models don't convert Khmer script to Latin letters, and they are not meant for official romanization of names.</li>
+</ul>
+<h2>The name</h2>
+<p>Samdei (សំដី) means &quot;what you say&quot;. It is the name of the team the project is released under, Samdei Labs.</p>
+<h2>Citation</h2>
+<p>If you use Samdei Type, please cite the technical report:</p>
+<pre><code class="language-bibtex">@misc{samdei-type-2026,
+  title  = {Samdei Type: Separating What Is Written from How It Is Spelled for Romanized Khmer Transliteration},
+  author = {Mengsay Loem},
+  year   = {2026},
+  note   = {Technical report},
+  url    = {https://github.com/Samdei-Labs/samdei-type/blob/main/paper/samdei-type.pdf}
+}
+</code></pre>
+</div><div class="project-tags article-tags"><span class="tag">#khmer</span> <span class="tag">#transliteration</span> <span class="tag">#romanization</span> <span class="tag">#on-device</span> <span class="tag">#open-models</span> <span class="tag">#benchmark</span></div></article><footer><a href="../">← All Projects</a></footer></div></body></html>

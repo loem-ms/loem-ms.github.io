@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Samdei Type — Mengsay Loem</title><meta name="description" content="多くのカンボジア人がチャットで使うローマ字表記のクメール語を、クメール文字に変換するオープンモデルです。スマホのキーボードに載る小ささで、学習データと日常メッセージの新しいベンチマークもすべて公開しました。"><link rel="alternate" hreflang="en" href="https://loem-ms.github.io/projects/en/samdei-type/"><link rel="alternate" hreflang="ja" href="https://loem-ms.github.io/projects/ja/samdei-type/"><link rel="canonical" href="https://loem-ms.github.io/projects/ja/samdei-type/"><meta property="og:type" content="website"><meta property="og:title" content="Samdei Type — Mengsay Loem"><meta property="og:description" content="多くのカンボジア人がチャットで使うローマ字表記のクメール語を、クメール文字に変換するオープンモデルです。スマホのキーボードに載る小ささで、学習データと日常メッセージの新しいベンチマークもすべて公開しました。"><meta property="og:url" content="https://loem-ms.github.io/projects/ja/samdei-type/"><meta property="og:image" content="https://loem-ms.github.io/projects/samdei-type/assets/cover.jpg"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+Khmer:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../style.css"></head><body><!-- Generated from content/projects/ by scripts/build_projects.py --><div class="shell"><header class="site-head"><a class="brand" href="../"><span class="brand-name">Mengsay Loem</span><span class="brand-sep">/</span><span class="brand-section">Projects</span></a><div class="head-actions"><div class="lang-switch"><a href="../../en/samdei-type/">EN</a><span class="sep">/</span><span aria-current="page">日本語</span></div><a class="home-link" href="../../../">Home</a></div></header><article class="article"><header class="article-head"><div class="project-meta"><span class="stage stage-released">公開済み</span><span>Samdei Labs · 2026年11月</span></div><h1>Samdei Type</h1><p class="deck">多くのカンボジア人がチャットで使うローマ字表記のクメール語を、クメール文字に変換するオープンモデルです。スマホのキーボードに載る小ささで、学習データと日常メッセージの新しいベンチマークもすべて公開しました。</p><div class="project-links"><a href="https://github.com/Samdei-Labs/samdei-type" target="_blank" rel="noopener">GitHub ↗</a><a href="https://huggingface.co/collections/samdei/samdei-type-romanized-khmer-khmer-script" target="_blank" rel="noopener">Hugging Face ↗</a><a href="https://github.com/Samdei-Labs/samdei-type/blob/main/paper/samdei-type.pdf" target="_blank" rel="noopener">技術レポート（PDF） ↗</a><a href="https://huggingface.co/blog/mengsay/samdei-type" target="_blank" rel="noopener">リリース記事 ↗</a><a href="https://pypi.org/project/samdei-type/" target="_blank" rel="noopener">PyPI ↗</a></div><div class="facts"><div class="fact"><div class="fact-value">7.1M / 18.2M</div><div class="fact-label">パラメータ数（Mini / Base）</div></div><div class="fact"><div class="fact-value">0.052</div><div class="fact-label">Samdei Type Bench での Base の文字誤り率</div></div><div class="fact"><div class="fact-value">2,155</div><div class="fact-label">ベンチマークの日常メッセージ・単語数</div></div><div class="fact"><div class="fact-value">~5 ms</div><div class="fact-label">CPU 1スレッドでの Mini の1入力あたりの時間</div></div></div></header><figure class="project-hero"><img src="../../samdei-type/assets/cover.jpg" alt="Samdei Type v0.1：knhom jong tov phsar が ខ្ញុំចង់ទៅផ្សារ になる。スマホのキーボード向けの Samdei Type Mini（7.1M パラメータ）と Samdei Type Base（18.2M パラメータ）。"></figure><div class="prose"><h2>ローマ字で打たれるクメール語</h2>
+<p>クメール語には独自の文字がありますが、多くのカンボジア人はチャットでクメール語をローマ字で打っています。クメール文字を入力できるスマホが少なかった頃に広まった習慣で、今もスマホやSNSではよく使われています。どのキーボードでもすぐ打てる一方、決まった綴りがありません。<code>knhom</code>、<code>khnhom</code>、<code>kyom</code>、それに <code>nh</code> だけでも、どれも ខ្ញុំ（「私」）を意味します。母音を省いたり、単語をつなげたり分けたり、英語を混ぜたりもします。<code>ot mean wifi te</code> は អត់មាន wifi ទេ（「Wi-Fi がない」）です。</p>
+<p>こうして書かれたメッセージは読みにくく、単語分割から検索まで、クメール文字向けに作られたツールでは処理できません。主流の入力ツールも対応していません。Gboard にはラオ語やシンハラ語の翻字レイアウトはありますが、クメール語にはありません。</p>
+<p>ローマ字表記のクメール語をクメール文字に変換できれば、使い道は二つあります。キーボードの中では、いつも通り打った文字をオフラインで、数ミリ秒でクメール文字にできます。キーボードの外では、ほかの人から届いたローマ字のメッセージをクメール文字で読めます。Samdei Type は、一つの小さなモデルでその両方をこなします。</p>
+<figure class="phone">
+  <img src="../../samdei-type/assets/demo.gif" alt="チャットで使う Samdei Type Mini。前半は入力：tos tov leng takeo hob bongkong boeng が、打つそばから តោះទៅលេងតាកែវ ហូបបង្កងបឹង に変わる。後半は読み：友だちが同じメッセージをローマ字で送ってきて、ワンタップでクメール文字で表示される。" loading="lazy">
+  <figcaption>Samdei Type Mini が、一つのメッセージを打つときにも、友だちからローマ字で届いたときにも変換します。表示されている変換はすべて、公開モデルの実際の出力です。</figcaption>
+</figure>
+
+<h2>アイデア：「何が書かれているか」と「どう綴られるか」を分ける</h2>
+<p>変換を学習するには、ローマ字表記とクメール文字のペアが必要です。クメール文字のテキスト自体はたくさんあるのに、このペアはほとんどありません。既存のオープンなモデルは、綴りを主に一つの情報源（単語リストか、ルールベースの生成器）から学んでいて、その情報源の癖をそのまま受け継いでいます。</p>
+<p>そこで、学習ペアを二つに分けて考えました。クメール文字の側、つまり<em>何が書かれているか</em>は、常に実在の文です。だから正解は作り方からして正しくなります。ローマ字の側、つまり<em>どう綴られるか</em>は、それぞれ別の偏りを持つ、小さくて不完全な複数の情報源から作ります。こうすると、モデルが一つの情報源の癖だけを覚えることがありません。たとえば ខ្ញុំចង់ទៅផ្សារ（「市場に行きたい」）という一文は、情報源によってこう綴られます。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>ローマ字の綴り</th>
+  <th>情報源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>knhom jong tou bsa</code></td>
+  <td>ペルソナ生成器（丁寧に打つ人）</td>
+</tr>
+<tr>
+  <td><code>khnhom chong tov phsear</code></td>
+  <td>公開単語リストから抽出した綴り表</td>
+</tr>
+<tr>
+  <td><code>kyom jong tow phsar</code></td>
+  <td>ペルソナ生成器（いろいろな癖が混ざる人）</td>
+</tr>
+<tr>
+  <td><code>nh jg tv psa</code></td>
+  <td>ペルソナ生成器（省略して打つ人）</td>
+</tr>
+</tbody>
+</table></div>
+<p>情報源は次のとおりです。</p>
+<ul>
+<li>4種類の打ち方のペルソナで綴り、母音の脱落・単語の連結・タイプミスなどのノイズを加えるルールベースの生成器</li>
+<li>公開されているローマ字クメール語の単語リストから抽出した綴り表</li>
+<li>実在の文を LLM（ローカルで動かした Gemma 4）にローマ字化させたもの</li>
+<li>くだけたチャット向けの省略形（<code>tov</code> → <code>tv</code>）や文字の伸ばし（<code>tovvv</code>）</li>
+</ul>
+<h2>学習：広いところから具体的なところへ</h2>
+<p>小さな文字レベルの Transformer を、まず主に生成器で作ったペアで事前学習します（Base は 1,280 万ペア、Mini は 650 万ペア）。そのあと二つの短い段階で、ほかの情報源を取り入れます。最初はチャットらしいペア、次にくだけた文体です。事前学習で単語を覚え、チャットらしいペアの段階で文全体を扱えるようになります。学習時間はノートPCの GPU 1枚で、Mini が約3時間、Base が約6時間でした。</p>
+<p>デコード時には、ビームサーチの候補を単語言語モデルでリランキングします。Base ではさらに、文字言語モデルと、候補が入力をすべて説明できているかを確かめる逆方向のモデルも使います。</p>
+<h2>日常メッセージのベンチマーク</h2>
+<p>日常のローマ字メッセージで評価できる公開テストセットはありませんでした。既存のオープンなモデルは自分の学習データの一部で評価されていて、実際のチャットを使ったテストも、知る限り40文に満たないものでした。そこで <strong>Samdei Type Bench</strong> を作りました。場面を設計した日常メッセージと単語 2,155 件で、多くは LLM の下書きをネイティブスピーカーが確認したものです（確認してくれた皆さんに感謝します）。どの Samdei Type モデルも、このベンチマークで学習・選択・調整はしていません。</p>
+<p>このベンチマークで、どちらのモデルも既存の最良のオープンモデルを上回りました。文字誤り率（CER）は低いほど良い指標です。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>システム</th>
+  <th>パラメータ数</th>
+  <th>CER</th>
+  <th>完全一致</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Samdei Type Base</strong></td>
+  <td>18.2M</td>
+  <td><strong>0.052</strong></td>
+  <td><strong>30%</strong></td>
+</tr>
+<tr>
+  <td><strong>Samdei Type Mini</strong></td>
+  <td>7.1M</td>
+  <td>0.058</td>
+  <td>24%</td>
+</tr>
+<tr>
+  <td>Akkhara-mini（6語ずつ）</td>
+  <td>17.8M</td>
+  <td>0.066</td>
+  <td>23%</td>
+</tr>
+<tr>
+  <td>AkaraAlpha</td>
+  <td>0.08M</td>
+  <td>0.281</td>
+  <td>2%</td>
+</tr>
+</tbody>
+</table></div>
+<p>Mini は速さも十分です。int8 ONNX にして Apple M5 Pro の CPU 1スレッドで動かすと、1入力あたり約5ミリ秒、リランキング込みでも1キー入力あたり5.7ミリ秒です。</p>
+<h2>公開したもの</h2>
+<p>すべて <a href="https://huggingface.co/collections/samdei/samdei-type-romanized-khmer-khmer-script">Hugging Face のコレクション</a>にまとめて公開し、推論コードは <a href="https://github.com/Samdei-Labs/samdei-type">GitHub</a> に置いています。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+  <th>公開物</th>
+  <th>内容</th>
+  <th>ライセンス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="https://huggingface.co/samdei/samdei-type-mini">samdei-type-mini</a></td>
+  <td>端末上で動くモデル：int8 ONNX で 7 MiB、ほかに 1.2 MiB の単語言語モデル</td>
+  <td>Apache-2.0</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/samdei/samdei-type-base">samdei-type-base</a></td>
+  <td>最も精度の高いオープンモデルと、そのリランキング用モデル</td>
+  <td>Apache-2.0</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/samdei/samdei-type-mini-pretrained">mini-pretrained</a>、<a href="https://huggingface.co/samdei/samdei-type-base-pretrained">base-pretrained</a></td>
+  <td>事前学習済みチェックポイント（自分用の変換器のファインチューニングに）</td>
+  <td>Apache-2.0</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/datasets/samdei/samdei-type-bench">samdei-type-bench</a></td>
+  <td>Samdei Type Bench（クメール文字は人手で確認済み）</td>
+  <td>CC BY 4.0</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/datasets/samdei/samdei-type-pretraining-data">pretraining-data</a>、<a href="https://huggingface.co/datasets/samdei/samdei-type-finetuning-data">finetuning-data</a></td>
+  <td>各段階で実際に使った学習ペア</td>
+  <td>CC BY-SA 4.0</td>
+</tr>
+<tr>
+  <td><a href="https://huggingface.co/datasets/samdei/samdei-type-resources">samdei-type-resources</a></td>
+  <td>LLM が書いたチャット文、抽出した綴り表、語彙リスト</td>
+  <td>ファイルごと</td>
+</tr>
+</tbody>
+</table></div>
+<p>モデルは <code>transformers</code> ライブラリだけで読み込めます。最高の精度で使うには、リランキングを加える <code>samdei-type</code> パッケージを使います。</p>
+<pre><code class="language-bash">pip install &quot;samdei-type[deploy]&quot;
+samdei-type &quot;knhom jong tov phsar&quot;    # ខ្ញុំចង់ទៅផ្សារ
+</code></pre>
+<p>手法とすべての数値は<a href="https://github.com/Samdei-Labs/samdei-type/blob/main/paper/samdei-type.pdf">技術レポート</a>に、リリースの紹介は <a href="https://huggingface.co/blog/mengsay/samdei-type">Hugging Face の記事</a>（英語）にまとめています。ベンチマークもデータも学習レシピも公開しているので、ローマ字表記のクメール語、そしてクメール語の言語技術全般に取り組む人に、ぜひ使って、発展させて、改良してもらえたらうれしいです。</p>
+<h2>限界</h2>
+<ul>
+<li>学習で見たローマ字入力はすべて合成データです。実際の入力は評価にしか登場しません。</li>
+<li>次の単語より広い文脈が必要な同音語は、まだ苦手です。ដើរ / ដែរ（<code>der</code>）、ដឹក / ដែក / ដេក（<code>dek</code>）など。</li>
+<li>英語のまま打たれた借用語（ឆែក の意味の <code>check</code> など）は英語のまま残ります。</li>
+<li>クメール文字からローマ字への変換はしません。人名の公式なローマ字表記にも向いていません。</li>
+</ul>
+<h2>名前について</h2>
+<p>Samdei（សំដី）は「話す言葉」という意味です。このプロジェクトを公開しているチーム、Samdei Labs の名前でもあります。</p>
+<h2>引用</h2>
+<p>Samdei Type を使う場合は、技術レポートを引用してください。</p>
+<pre><code class="language-bibtex">@misc{samdei-type-2026,
+  title  = {Samdei Type: Separating What Is Written from How It Is Spelled for Romanized Khmer Transliteration},
+  author = {Mengsay Loem},
+  year   = {2026},
+  note   = {Technical report},
+  url    = {https://github.com/Samdei-Labs/samdei-type/blob/main/paper/samdei-type.pdf}
+}
+</code></pre>
+</div><div class="project-tags article-tags"><span class="tag">#khmer</span> <span class="tag">#transliteration</span> <span class="tag">#romanization</span> <span class="tag">#on-device</span> <span class="tag">#open-models</span> <span class="tag">#benchmark</span></div></article><footer><a href="../">← すべてのProjects</a></footer></div></body></html>

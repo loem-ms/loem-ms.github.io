@@ -1,0 +1,73 @@
+id: samdei-type
+slug: samdei-type
+status: published
+stage: released
+started: 2026-11
+ended: 2026-11
+default_language: en
+
+languages:
+  - en
+  - ja
+
+tags:
+  - khmer
+  - transliteration
+  - romanization
+  - on-device
+  - open-models
+  - benchmark
+
+kicker:
+  en: Samdei Labs
+  ja: Samdei Labs
+
+title:
+  en: Samdei Type
+  ja: Samdei Type
+
+summary:
+  en: >-
+    Open models that turn romanized Khmer, the Latin spelling many Cambodians
+    use in chat, into Khmer script. Small enough for a phone keyboard, and
+    released with all their training data and a new benchmark of everyday messages.
+  ja: 多くのカンボジア人がチャットで使うローマ字表記のクメール語を、クメール文字に変換するオープンモデルです。スマホのキーボードに載る小ささで、学習データと日常メッセージの新しいベンチマークもすべて公開しました。
+
+cover: assets/cover.jpg
+cover_alt:
+  en: "Samdei Type v0.1: knhom jong tov phsar becomes ខ្ញុំចង់ទៅផ្សារ. Samdei Type Mini, 7.1M parameters, for a phone keyboard; Samdei Type Base, 18.2M parameters."
+  ja: "Samdei Type v0.1：knhom jong tov phsar が ខ្ញុំចង់ទៅផ្សារ になる。スマホのキーボード向けの Samdei Type Mini（7.1M パラメータ）と Samdei Type Base（18.2M パラメータ）。"
+
+facts:
+  - value: 7.1M / 18.2M
+    label:
+      en: parameters, Mini / Base
+      ja: パラメータ数（Mini / Base）
+  - value: "0.052"
+    label:
+      en: character error rate of Base on Samdei Type Bench
+      ja: Samdei Type Bench での Base の文字誤り率
+  - value: "2,155"
+    label:
+      en: everyday messages and words in the benchmark
+      ja: ベンチマークの日常メッセージ・単語数
+  - value: ~5 ms
+    label:
+      en: per input for Mini on one CPU thread
+      ja: CPU 1スレッドでの Mini の1入力あたりの時間
+
+links:
+  - label: GitHub
+    url: https://github.com/Samdei-Labs/samdei-type
+  - label: Hugging Face
+    url: https://huggingface.co/collections/samdei/samdei-type-romanized-khmer-khmer-script
+  - label:
+      en: Technical report (PDF)
+      ja: 技術レポート（PDF）
+    url: https://github.com/Samdei-Labs/samdei-type/blob/main/paper/samdei-type.pdf
+  - label:
+      en: Release article
+      ja: リリース記事
+    url: https://huggingface.co/blog/mengsay/samdei-type
+  - label: PyPI
+    url: https://pypi.org/project/samdei-type/
