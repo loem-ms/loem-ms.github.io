@@ -1,5 +1,7 @@
 # Site content
 
+For rules, design notes and agent checklists, see `../AGENTS.md`, `../docs/` and `../.claude/skills/`.
+
 Everything on https://loem-ms.github.io/ is edited here, in YAML and Markdown. The scripts in `scripts/` turn it
 into HTML. On every push to `gh-pages` that touches `content/` or `scripts/`, the GitHub Action "Build site"
 rebuilds the pages and commits them. **Don't edit the generated HTML** (`index.html`, `publications/`, `cv/`,
@@ -23,9 +25,9 @@ is `scripts/sitekit.py`; the top bar's links are its `NAV` list.
 ## Build and preview locally
 
 ```bash
-pip install -r requirements-notes.txt
-python scripts/build_notes.py && python scripts/build_projects.py && python scripts/build_site.py
-python -m http.server 8000   # http://localhost:8000/
+make setup   # once
+make check   # build every page, then check links
+make serve   # http://localhost:8765/
 ```
 
 The order matters: `build_site.py` reads `notes/manifest.json` and `projects/manifest.json` for the home page.
