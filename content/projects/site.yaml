@@ -1,0 +1,37 @@
+base_url: https://loem-ms.github.io
+default_language: en
+
+# Labels for meta.yaml `stage`. Add a stage here before using it in a project.
+stages:
+  active:   { en: Active,   ja: 進行中 }
+  released: { en: Released, ja: 公開済み }
+  paused:   { en: Paused,   ja: 休止中 }
+  archived: { en: Archived, ja: アーカイブ }
+
+languages:
+  en:
+    label: EN
+    html_lang: en
+    kicker: Side projects
+    title: Projects
+    description: >-
+      Things I build outside my day job: small models, tools and datasets,
+      mostly around Khmer and other low-resource languages. Each page tells
+      the story behind one project and links to everything it released.
+    all_projects: All Projects
+    read_more: Read the story
+    home: Home
+    months: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    month_format: "{month} {year}"
+  ja:
+    label: 日本語
+    html_lang: ja
+    kicker: Side projects
+    title: Projects
+    # Japanese: keep each text on one line (a folded >- block puts spaces between the lines).
+    description: 本業の外で作っているものをまとめています。小さなモデル、ツール、データセットなど、クメール語をはじめとする低資源言語まわりのものが中心です。各ページには、プロジェクトの背景と、公開したものへのリンクを載せています。
+    all_projects: すべてのProjects
+    read_more: 詳しく読む
+    home: Home
+    months: [1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    month_format: "{year}年{month}"

@@ -1,0 +1,67 @@
+{
+  "default_language": "en",
+  "languages": [
+    "en",
+    "ja"
+  ],
+  "projects": [
+    {
+      "id": "samdei-type",
+      "slug": "samdei-type",
+      "stage": "released",
+      "stage_label": {
+        "en": "Released",
+        "ja": "公開済み"
+      },
+      "started": "2026-11",
+      "ended": "2026-11",
+      "tags": [
+        "khmer",
+        "transliteration",
+        "romanization",
+        "on-device",
+        "open-models",
+        "benchmark"
+      ],
+      "languages": [
+        "en",
+        "ja"
+      ],
+      "default_language": "en",
+      "title": {
+        "en": "Samdei Type",
+        "ja": "Samdei Type"
+      },
+      "summary": {
+        "en": "Open models that turn romanized Khmer, the Latin spelling many Cambodians use in chat, into Khmer script. Small enough for a phone keyboard, and released with all their training data and a new benchmark of everyday messages.",
+        "ja": "多くのカンボジア人がチャットで使うローマ字表記のクメール語を、クメール文字に変換するオープンモデルです。スマホのキーボードに載る小ささで、学習データと日常メッセージの新しいベンチマークもすべて公開しました。"
+      },
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Samdei-Labs/samdei-type"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/collections/samdei/samdei-type-romanized-khmer-khmer-script"
+        },
+        {
+          "label": "Technical report (PDF)",
+          "url": "https://github.com/Samdei-Labs/samdei-type/blob/main/paper/samdei-type.pdf"
+        },
+        {
+          "label": "Release article",
+          "url": "https://huggingface.co/blog/mengsay/samdei-type"
+        },
+        {
+          "label": "PyPI",
+          "url": "https://pypi.org/project/samdei-type/"
+        }
+      ],
+      "urls": {
+        "en": "/projects/en/samdei-type/",
+        "ja": "/projects/ja/samdei-type/"
+      }
+    }
+  ]
+}

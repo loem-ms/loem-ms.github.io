@@ -1,0 +1,52 @@
+# Copy this folder to content/projects/<slug>/ and edit. Folders starting with "_" are not built.
+id: my-project                 # stable id; usually the same as slug
+slug: my-project               # URL: /projects/<lang>/<slug>/ — must match the folder name
+status: draft                  # draft (not built) | published
+stage: active                  # active | released | paused | archived (labels in ../site.yaml)
+started: 2026-12               # YYYY or YYYY-MM
+ended: null                    # YYYY or YYYY-MM; null while it is running
+# pinned: true                 # optional: keep at the top of the list
+default_language: en
+
+languages:                     # one <lang>.md per entry
+  - en
+  - ja
+
+tags:
+  - tag-one
+  - tag-two
+
+kicker:                        # optional: small line above the title
+  en: Samdei Labs
+  ja: Samdei Labs
+
+title:
+  en: My Project
+  ja: My Project
+
+summary:                       # one or two sentences, used in lists, link previews and the home page
+  en: >-
+    What it is and who it is for, in one or two sentences.
+  ja: 何を作ったのか、誰のためのものかを一、二文で（日本語は1行で書く。>- で折り返すと行の間に空白が入る）。
+
+# Optional: an image under assets/ (16:9 works best; JPEG or PNG so link previews show it).
+# cover: assets/cover.jpg
+# cover_alt:
+#   en: What the image shows.
+#   ja: 画像の内容。
+
+# Optional: a row of key numbers under the title.
+# facts:
+#   - value: "0.052"
+#     label:
+#       en: what the number is
+#       ja: 数値の説明
+
+# Optional: link buttons under the title. A label is a string or {en: ..., ja: ...}.
+# links:
+#   - label: GitHub
+#     url: https://github.com/...
+#   - label:
+#       en: Paper (PDF)
+#       ja: 論文（PDF）
+#     url: https://...
