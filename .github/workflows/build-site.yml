@@ -1,14 +1,14 @@
 name: Build site
 
-# Builds the generated sections (notes/ and projects/) from content/ and commits them.
+# Builds the generated pages from content/ and commits them: notes/, projects/, then the
+# home page, publications/, cv/ and 404.html (which read the notes and projects manifests).
 on:
   push:
     branches:
       - gh-pages
     paths:
       - "content/**"
-      - "scripts/build_notes.py"
-      - "scripts/build_projects.py"
+      - "scripts/**"
       - "requirements-notes.txt"
       - ".github/workflows/build-site.yml"
   workflow_dispatch:
@@ -44,9 +44,12 @@ jobs:
       - name: Build Projects
         run: python scripts/build_projects.py
 
+      - name: Build home, Publications and CV
+        run: python scripts/build_site.py
+
       - name: Commit generated pages
         run: |
-          git add notes projects
+          git add notes projects index.html publications cv 404.html
           if git diff --cached --quiet; then
             echo "Generated pages are already up to date."
             exit 0

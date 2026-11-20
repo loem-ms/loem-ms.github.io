@@ -61,7 +61,8 @@
       "urls": {
         "en": "/projects/en/samdei-type/",
         "ja": "/projects/ja/samdei-type/"
-      }
+      },
+      "cover": "/projects/samdei-type/assets/cover.jpg"
     }
   ]
 }

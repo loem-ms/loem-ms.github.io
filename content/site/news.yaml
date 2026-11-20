@@ -1,0 +1,11 @@
+# Short updates for the home page, newest first. date: YYYY-MM or YYYY-MM-DD. text: one line of Markdown.
+- date: 2026-11
+  text: Released [Samdei Type](/projects/en/samdei-type/), open models that turn romanized Khmer into Khmer script.
+- date: 2026-11
+  text: Guest speech at [ACET 2026](https://www.idri.edu.kh/events/acet/) in Phnom Penh, on judge-free evaluation of generation in low-resource languages.
+- date: 2026-11
+  text: New preprint, [Khmer PFGen-Bench](https://arxiv.org/abs/2611.09222), a judge-free benchmark for open-ended generation in Khmer.
+- date: 2026-09
+  text: Started [Notes](/notes/), a public notebook of paper-reading memos and research thoughts.
+- date: 2026-07
+  text: Joined Preferred Networks as an engineer.

@@ -1,0 +1,48 @@
+# Awards and honors, newest first.
+- date: "2026"
+  text: "Best Journal Paper Award — 32nd Annual Meeting of the Association for NLP (Japan)"
+  links: [{label: "paper", url: "https://www.jstage.jst.go.jp/article/jnlp/32/2/32_480/_article/-char/en"}]
+
+- date: "2025"
+  text: "Language Resources Award — NLP2025, for Swallow LLM (Japan)"
+  links: [{label: "Swallow LLM", url: "https://swallow-llm.github.io/"}]
+
+- date: "2024"
+  text: "Young Researcher's Encouragement Award — 30th Annual Meeting of the Association for NLP (Japan)"
+  links: [{label: "paper", url: "https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/B10-6.pdf"}]
+
+- date: "2024"
+  text: "Best Paper Awards — 30th Annual Meeting of the Association for NLP (Japan)"
+  links: [{label: "paper 1", url: "https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A6-1.pdf"}, {label: "paper 2", url: "https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/A8-5.pdf"}]
+
+- date: "2022–24"
+  text: "Sato Yo International Scholarship"
+  links: []
+
+- date: "2020–22"
+  text: "Japanese Government (MEXT) Scholarship"
+  links: []
+
+- date: "2020"
+  text: "IEICE Kyushu Section Award for Academic Excellence (Japan)"
+  links: []
+
+- date: "2020"
+  text: "President's Award for Best Graduation Project, Kagoshima College of Technology (Japan)"
+  links: []
+
+- date: "2016–20"
+  text: "Japanese Government (MEXT) Scholarship — College of Technology"
+  links: []
+
+- date: "2016"
+  text: "Outstanding Award — 10th Regional Congress, SEAMEO Young Scientists (Malaysia)"
+  links: []
+
+- date: "2015"
+  text: "56th International Mathematical Olympiad — Participation (Thailand)"
+  links: []
+
+- date: "2015"
+  text: "Gold Medal — Cambodian National Mathematical Olympiad (Cambodia)"
+  links: []

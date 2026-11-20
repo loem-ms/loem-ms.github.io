@@ -20,7 +20,6 @@ languages:
       the story behind one project and links to everything it released.
     all_projects: All Projects
     read_more: Read the story
-    home: Home
     months: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
     month_format: "{month} {year}"
   ja:
@@ -32,6 +31,5 @@ languages:
     description: 本業の外で作っているものをまとめています。小さなモデル、ツール、データセットなど、クメール語をはじめとする低資源言語まわりのものが中心です。各ページには、プロジェクトの背景と、公開したものへのリンクを載せています。
     all_projects: すべてのProjects
     read_more: 詳しく読む
-    home: Home
     months: [1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
     month_format: "{year}年{month}"

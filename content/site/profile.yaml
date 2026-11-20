@@ -1,0 +1,32 @@
+# The home page intro and the footer. intro and roles may use Markdown (*emphasis*, [links](...)).
+name: Mengsay Loem
+base_url: https://loem-ms.github.io
+description: Mengsay Loem — Engineer & Researcher. LLM/VLM, Evaluation, Low-Resource NLP.
+
+roles:
+  - Engineer at Preferred Networks
+  - formerly Researcher at Sansan
+location: Tokyo, Japan
+email: mengsaylms@gmail.com
+
+intro: >-
+  I build and study language and vision-language models — with a focus on how we
+  *evaluate* them, and how they hold up in *low-resource* settings.
+
+interests:
+  - LLM / VLM
+  - Evaluation
+  - Low-Resource NLP
+
+social:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=EoYd7EEAAAAJ&hl=en
+  - label: GitHub
+    url: https://github.com/loem-ms
+  - label: X
+    url: https://twitter.com/loem_ms
+
+# How many items the home page shows; the rest are on their own pages.
+home:
+  news: 5
+  notes: 3
