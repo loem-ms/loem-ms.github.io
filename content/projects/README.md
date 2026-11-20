@@ -16,7 +16,7 @@ there too.
 
    ```bash
    pip install -r requirements-notes.txt
-   python scripts/build_projects.py
+   python scripts/build_projects.py && python scripts/build_site.py
    python -m http.server 8000   # http://localhost:8000/projects/
    ```
 
@@ -30,7 +30,7 @@ there too.
 | `<slug>/meta.yaml` | One project's metadata (fields explained in `_template/meta.yaml`) |
 | `<slug>/<lang>.md` | The story, one file per language |
 | `<slug>/assets/` | Images and other files, published once at `/projects/<slug>/assets/` |
-| `../../projects/style.css` | The section's stylesheet (hand-written; the builder keeps it) |
+| `../../projects/style.css` | The section's stylesheet, on top of `/assets/site.css` (hand-written; the builder keeps it) |
 
 Generated pages: `/projects/` (list), `/projects/<lang>/`, `/projects/<lang>/<slug>/`, and `/projects/<slug>/`,
 which redirects to the default language.

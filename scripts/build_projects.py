@@ -5,7 +5,7 @@ Each project is a folder content/projects/<slug>/ with meta.yaml, one <lang>.md 
 language and an optional assets/ folder. Folders whose name starts with "_" (such as
 the _template/ to copy) are skipped. See content/projects/README.md.
 
-Output, next to the hand-written projects/style.css:
+Pages use the shared layout in sitekit.py. Output, next to the hand-written projects/style.css:
   projects/index.html            list in the default language
   projects/<lang>/index.html     list per language
   projects/<lang>/<slug>/        one page per project and language
@@ -19,6 +19,7 @@ import html, json, re, shutil
 from datetime import date, datetime
 from pathlib import Path
 import mistune, yaml
+from sitekit import document, lang_switch
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content" / "projects"
@@ -98,44 +99,6 @@ def load_projects(site):
     return sorted(projects, key=lambda m: (bool(m.get("pinned")), m["started"], m["slug"]), reverse=True)
 
 
-def fonts():
-    return ('<link rel="preconnect" href="https://fonts.googleapis.com">'
-            '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-            '<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700'
-            '&family=Noto+Sans+Khmer:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">')
-
-
-def doc(lang, title, desc, css, body, extra=""):
-    return (f'<!DOCTYPE html><html lang="{esc(lang)}"><head><meta charset="utf-8">'
-            f'<meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title>'
-            f'<meta name="description" content="{esc(desc)}">{extra}{fonts()}<link rel="stylesheet" href="{esc(css)}">'
-            f'</head><body>{body}</body></html>')
-
-
-def og(title, desc, url, image=None):
-    tags = [f'<meta property="og:type" content="website">', f'<meta property="og:title" content="{esc(title)}">',
-            f'<meta property="og:description" content="{esc(desc)}">', f'<meta property="og:url" content="{esc(url)}">']
-    if image:
-        tags += [f'<meta property="og:image" content="{esc(image)}">', '<meta name="twitter:card" content="summary_large_image">']
-    return "".join(tags)
-
-
-def switch(site, current, hrefs):
-    out = []
-    for code, cfg in site["languages"].items():
-        if code not in hrefs: continue
-        label = esc(cfg["label"])
-        out.append(f'<span aria-current="page">{label}</span>' if code == current else f'<a href="{esc(hrefs[code])}">{label}</a>')
-    return '<span class="sep">/</span>'.join(out)
-
-
-def header(site, lang, brand, home, hrefs):
-    return (f'<header class="site-head"><a class="brand" href="{brand}"><span class="brand-name">Mengsay Loem</span>'
-            f'<span class="brand-sep">/</span><span class="brand-section">Projects</span></a><div class="head-actions">'
-            f'<div class="lang-switch">{switch(site, lang, hrefs)}</div>'
-            f'<a class="home-link" href="{home}">{esc(site["languages"][lang]["home"])}</a></div></header>')
-
-
 def stage_badge(site, p, lang):
     return f'<span class="stage stage-{esc(p["stage"])}">{esc(loc(site["stages"][p["stage"]], lang, site["default_language"]))}</span>'
 
@@ -147,21 +110,21 @@ def links_html(p, lang, dl, cls="project-links"):
     return f'<div class="{cls}">{items}</div>'
 
 
+def list_url(site, lang):
+    return "/projects/" if lang == site["default_language"] else f"/projects/{lang}/"
+
+
 def index(site, projects, lang, root=False):
     cfg = site["languages"][lang]; dl = site["default_language"]
-    # up: from this list page to projects/
-    if root:
-        css = "./style.css"; home = "../"; up = "./"; hrefs = {c: ("./" if c == lang else f"./{c}/") for c in site["languages"]}
-    else:
-        css = "../style.css"; home = "../../"; up = "../"; hrefs = {c: ("./" if c == lang else f"../{c}/") for c in site["languages"]}
+    hrefs = {c: list_url(site, c) for c in site["languages"]}
     cards = []
     for p in projects:
         plang = lang if lang in p["languages"] else p["default_language"]
-        href = f'{up}{plang}/{esc(p["slug"])}/'
+        href = f'/projects/{plang}/{esc(p["slug"])}/'
         cover = ""
         if p.get("cover"):
             cover = (f'<a class="project-cover" href="{href}" tabindex="-1" aria-hidden="true">'
-                     f'<img src="{up}{esc(p["slug"])}/{esc(p["cover"])}" alt="" loading="lazy"></a>')
+                     f'<img src="/projects/{esc(p["slug"])}/{esc(p["cover"])}" alt="" loading="lazy"></a>')
         tags = " ".join(f'<span class="tag">#{esc(t)}</span>' for t in p["tags"])
         cards.append(
             f'<article class="project-card">{cover}<div class="project-body">'
@@ -170,14 +133,13 @@ def index(site, projects, lang, root=False):
             f'<p class="project-summary">{esc(loc(p["summary"], plang, dl))}</p>'
             f'<div class="project-tags">{tags}</div>'
             f'<a class="project-more" href="{href}">{esc(cfg["read_more"])} →</a></div></article>')
-    body = (f'{GENERATED}<div class="shell">{header(site, lang, "./", home, hrefs)}<main>'
-            f'<section class="hero"><div class="kicker">{esc(cfg["kicker"])}</div><h1>{esc(cfg["title"])}</h1>'
-            f'<p class="deck">{esc(cfg["description"])}</p></section>'
-            f'<div class="project-list">{"".join(cards)}</div></main>'
-            f'<footer>Projects by Mengsay Loem · Tokyo</footer></div>')
+    body = (f'<header class="page-head"><div class="kicker">{esc(cfg["kicker"])}</div><h1>{esc(cfg["title"])}</h1>'
+            f'<p class="deck">{esc(cfg["description"])}</p></header>'
+            f'<div class="project-list">{"".join(cards)}</div>')
     url = site["base_url"].rstrip("/") + ("/projects/" if root else f"/projects/{lang}/")
-    return doc(cfg["html_lang"], "Projects — Mengsay Loem", cfg["description"], css, body,
-               f'<link rel="canonical" href="{url}">' + og("Projects — Mengsay Loem", cfg["description"], url))
+    return document(lang=cfg["html_lang"], title="Projects — Mengsay Loem", description=cfg["description"], body=body,
+                    active="projects", css=("/projects/style.css",), switch=lang_switch(site["languages"], lang, hrefs),
+                    canonical=url, comment=GENERATED)
 
 
 def facts_html(p, lang, dl):
@@ -193,29 +155,28 @@ def page(site, p, lang):
     # escape=False: the Markdown may hold raw HTML such as <figure> or <video>.
     md = mistune.create_markdown(escape=False, plugins=["table", "strikethrough", "url"])
     # Assets live once in projects/<slug>/assets/; point the Markdown's assets/... there.
-    shared = f"../../{slug}/"
+    shared = f"/projects/{slug}/"
     prose = md((p["dir"] / f"{lang}.md").read_text(encoding="utf-8"))
     prose = prose.replace('src="assets/', f'src="{shared}assets/').replace('href="assets/', f'href="{shared}assets/')
     prose = prose.replace("<table>", '<div class="table-wrap"><table>').replace("</table>", "</table></div>")
-    hrefs = {c: ("./" if c == lang else f"../../{c}/{slug}/") for c in p["languages"]}
+    hrefs = {c: f"/projects/{c}/{slug}/" for c in p["languages"]}
     base = site["base_url"].rstrip("/")
-    url = f"{base}/projects/{lang}/{slug}/"
     title = loc(p["title"], lang, dl); summary = loc(p["summary"], lang, dl)
     image = f"{base}/projects/{slug}/{p['cover']}" if p.get("cover") else None
-    extra = "".join(f'<link rel="alternate" hreflang="{c}" href="{base}/projects/{c}/{slug}/">' for c in p["languages"])
-    extra += f'<link rel="canonical" href="{url}">' + og(f"{title} — Mengsay Loem", summary, url, image)
+    alternates = "".join(f'<link rel="alternate" hreflang="{c}" href="{base}/projects/{c}/{slug}/">' for c in p["languages"])
     kicker = loc(p.get("kicker"), lang, dl)
     meta = " · ".join(x for x in (kicker, period(p, cfg)) if x)
     cover = ""
     if p.get("cover"):
         cover = f'<figure class="project-hero"><img src="{shared}{esc(p["cover"])}" alt="{esc(loc(p.get("cover_alt"), lang, dl))}"></figure>'
     tags = " ".join(f'<span class="tag">#{esc(t)}</span>' for t in p["tags"])
-    body = (f'{GENERATED}<div class="shell">{header(site, lang, "../", "../../../", hrefs)}<article class="article">'
-            f'<header class="article-head"><div class="project-meta">{stage_badge(site, p, lang)}<span>{esc(meta)}</span></div>'
+    body = (f'<article class="article"><header class="article-head"><div class="project-meta">{stage_badge(site, p, lang)}<span>{esc(meta)}</span></div>'
             f'<h1>{esc(title)}</h1><p class="deck">{esc(summary)}</p>{links_html(p, lang, dl)}{facts_html(p, lang, dl)}</header>'
-            f'{cover}<div class="prose">{prose}</div><div class="project-tags article-tags">{tags}</div></article>'
-            f'<footer><a href="../">← {esc(cfg["all_projects"])}</a></footer></div>')
-    return doc(cfg["html_lang"], f"{title} — Mengsay Loem", summary, "../../style.css", body, extra)
+            f'{cover}<div class="prose">{prose}</div><div class="project-tags article-tags">{tags}</div>'
+            f'<p class="back"><a href="{list_url(site, lang)}">← {esc(cfg["all_projects"])}</a></p></article>')
+    return document(lang=cfg["html_lang"], title=f"{title} — Mengsay Loem", description=summary, body=body, active="projects",
+                    css=("/projects/style.css",), switch=lang_switch(site["languages"], lang, hrefs),
+                    canonical=f"{base}/projects/{lang}/{slug}/", og_image=image, head=alternates, comment=GENERATED)
 
 
 def redirect(site, p):
@@ -238,6 +199,7 @@ def manifest(site, projects):
             "summary": {l: loc(p["summary"], l, dl) for l in p["languages"]},
             "links": [{"label": loc(l["label"], dl, dl), "url": l["url"]} for l in p.get("links") or []],
             "urls": {l: f'/projects/{l}/{p["slug"]}/' for l in p["languages"]},
+            "cover": f'/projects/{p["slug"]}/{p["cover"]}' if p.get("cover") else None,
         })
     return {"default_language": dl, "languages": list(site["languages"]), "projects": rows}
 

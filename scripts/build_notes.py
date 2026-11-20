@@ -5,11 +5,13 @@ import html, json, re, shutil
 from datetime import date, datetime
 from pathlib import Path
 import mistune, yaml
+from sitekit import document, lang_switch
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content" / "notes"
 OUT = ROOT / "notes"
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+GENERATED = "<!-- Generated from content/notes/ by scripts/build_notes.py -->"
 
 
 def load_yaml(path):
@@ -72,25 +74,8 @@ def load_notes(site):
     return sorted(notes,key=sort_key,reverse=True)
 
 
-def fonts():
-    return '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">'
-
-
-def doc(lang,title,desc,css,body,extra=""):
-    return f'''<!DOCTYPE html><html lang="{esc(lang)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}">{extra}{fonts()}<link rel="stylesheet" href="{esc(css)}"></head><body>{body}</body></html>'''
-
-
-def switch(site,current,hrefs):
-    out=[]
-    for code,cfg in site["languages"].items():
-        if code not in hrefs: continue
-        label=esc(cfg["label"])
-        out.append(f'<span aria-current="page">{label}</span>' if code==current else f'<a href="{esc(hrefs[code])}">{label}</a>')
-    return '<span class="sep">/</span>'.join(out)
-
-
-def header(site,lang,brand,home,hrefs):
-    return f'''<header class="site-head"><a class="brand" href="{brand}"><span class="brand-name">Mengsay Loem</span><span class="brand-sep">/</span><span class="brand-section">Notes</span></a><div class="head-actions"><div class="lang-switch">{switch(site,lang,hrefs)}</div><a class="home-link" href="{home}">{esc(site["languages"][lang]["home"])}</a></div></header>'''
+def list_url(site, lang):
+    return "/notes/" if lang == site["default_language"] else f"/notes/{lang}/"
 
 
 def filter_script(empty_text):
@@ -99,16 +84,13 @@ def filter_script(empty_text):
 
 def index(site,notes,lang,root=False):
     cfg=site["languages"][lang]
-    if root:
-        css="./style.css"; home="../"; prefix=f"./{lang}/"; hrefs={c:("./" if c==lang else f"./{c}/") for c in site["languages"]}
-    else:
-        css="../style.css"; home="../../"; prefix="./"; hrefs={c:("./" if c==lang else f"../{c}/") for c in site["languages"]}
+    hrefs={c:list_url(site,c) for c in site["languages"]}
     localized=[n for n in notes if lang in n["languages"]]
     rows=[]
     for n in localized:
         tags=' '.join(f'<span class="tag">#{esc(t)}</span>' for t in n["tags"])
         year=n["published_at"][:4]
-        rows.append(f'<a class="note-row" data-year="{year}" href="{prefix}{esc(n["slug"])}/"><div class="note-date">{n["published_at"]}</div><div><div class="note-title">{esc(n["title"][lang])}</div><div class="note-desc">{esc(n["summary"][lang])}</div><div class="note-tags">{tags}</div></div></a>')
+        rows.append(f'<a class="note-row" data-year="{year}" href="/notes/{lang}/{esc(n["slug"])}/"><div class="note-date">{n["published_at"]}</div><div><div class="note-title">{esc(n["title"][lang])}</div><div class="note-desc">{esc(n["summary"][lang])}</div><div class="note-tags">{tags}</div></div></a>')
     years=sorted({n["published_at"][:4] for n in localized}, reverse=True)
     year_options=''.join(f'<option value="{y}">{y}</option>' for y in years)
     search_placeholder=cfg.get("search_placeholder","Search notes")
@@ -117,9 +99,9 @@ def index(site,notes,lang,root=False):
     filters=f'''<div class="note-tools"><input id="note-search" class="note-search" type="search" autocomplete="off" placeholder="{esc(search_placeholder)}" aria-label="{esc(search_placeholder)}"><select id="note-year" class="note-year" aria-label="{esc(all_years)}"><option value="">{esc(all_years)}</option>{year_options}</select><span id="note-count" class="note-count" aria-live="polite"></span></div>'''
     about_more=''.join(f'<p>{esc(p)}</p>' for p in cfg.get('about', []))
     about=f'''<div class="editorial-note"><div><div class="kicker">{esc(cfg.get("about_title","About these notes"))}</div><p>{esc(cfg.get("about_summary",""))}</p><details><summary>{esc(cfg.get("about_more_label","Details"))}</summary><div class="editorial-more">{about_more}</div></details></div><div class="collab-note"><div class="kicker">{esc(cfg.get("collaboration_title","Collaboration"))}</div><p>{esc(cfg.get("collaboration",""))}</p></div></div>'''
-    body=f'''<!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell">{header(site,lang,"./",home,hrefs)}<main><section class="hero"><div class="kicker">{esc(cfg["notebook_kicker"])}</div><h1>Notes</h1><p class="deck">{esc(cfg["description"])}</p></section>{about}{filters}<div class="note-list">{"".join(rows)}</div><p id="note-empty" class="note-empty" hidden>{esc(empty_text)}</p></main><footer>Notes by Mengsay Loem · Tokyo</footer></div>{filter_script(empty_text)}'''
+    body=f'''<header class="page-head"><div class="kicker">{esc(cfg["notebook_kicker"])}</div><h1>Notes</h1><p class="deck">{esc(cfg["description"])}</p></header>{about}{filters}<div class="note-list">{"".join(rows)}</div><p id="note-empty" class="note-empty" hidden>{esc(empty_text)}</p>'''
     canonical=site["base_url"].rstrip('/') + ('/notes/' if root else f'/notes/{lang}/')
-    return doc(cfg["html_lang"],"Notes — Mengsay Loem",cfg["description"],css,body,f'<link rel="canonical" href="{canonical}">')
+    return document(lang=cfg["html_lang"],title="Notes — Mengsay Loem",description=cfg["description"],body=body,active="notes",css=("/notes/style.css",),switch=lang_switch(site["languages"],lang,hrefs),canonical=canonical,scripts=filter_script(empty_text),comment=GENERATED)
 
 
 def paper_ref(n):
@@ -135,14 +117,14 @@ def paper_ref(n):
 def article(site,n,lang):
     cfg=site["languages"][lang]; slug=n["slug"]
     md=mistune.create_markdown(plugins=["table"])((n["dir"]/f"{lang}.md").read_text(encoding="utf-8"))
-    hrefs={c:("./" if c==lang else f"../../{c}/{slug}/") for c in n["languages"]}
+    md=md.replace("<table>", '<div class="table-wrap"><table>').replace("</table>", "</table></div>")
+    hrefs={c:f"/notes/{c}/{slug}/" for c in n["languages"]}
     alts=''.join(f'<link rel="alternate" hreflang="{c}" href="{site["base_url"]}/notes/{c}/{slug}/">' for c in n["languages"])
-    alts+=f'<link rel="canonical" href="{site["base_url"]}/notes/{lang}/{slug}/">'
     kicker=n.get("kicker",{}).get(lang,n["type"].replace('-',' ').title()) if isinstance(n.get("kicker",{}),dict) else n["type"]
     meta=n["published_at"] + (f' · updated {n["updated_at"]}' if n.get("updated_at") else '') + ' · ' + ' / '.join(n["tags"])
     ref=paper_ref(n)
-    body=f'''<!-- Generated from content/notes/ by scripts/build_notes.py --><div class="shell">{header(site,lang,"../","../../../",hrefs)}<article class="article"><header class="article-head"><div class="kicker">{esc(kicker)}</div><h1>{esc(n["title"][lang])}</h1><div class="meta">{esc(meta)}</div>{ref}</header><div class="prose">{md}</div></article><footer><a href="../">← {esc(cfg["all_notes"])}</a></footer></div>'''
-    return doc(cfg["html_lang"],f'{n["title"][lang]} — Mengsay Loem',n["summary"][lang],"../../style.css",body,alts)
+    body=f'''<article class="article"><header class="article-head"><div class="kicker">{esc(kicker)}</div><h1>{esc(n["title"][lang])}</h1><div class="meta">{esc(meta)}</div>{ref}</header><div class="prose">{md}</div><p class="back"><a href="{list_url(site,lang)}">← {esc(cfg["all_notes"])}</a></p></article>'''
+    return document(lang=cfg["html_lang"],title=f'{n["title"][lang]} — Mengsay Loem',description=n["summary"][lang],body=body,active="notes",css=("/notes/style.css",),switch=lang_switch(site["languages"],lang,hrefs),canonical=f'{site["base_url"]}/notes/{lang}/{slug}/',head=alts,comment=GENERATED)
 
 
 def redirect(site,n):
