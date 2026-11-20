@@ -1,0 +1,6 @@
+# Local only. GitHub Pages serves every committed file, so keep tooling out of git.
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.claude/settings.local.json
