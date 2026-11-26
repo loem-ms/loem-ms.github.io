@@ -1,0 +1,65 @@
+id: translated-data-not-a-replacement
+slug: translated-data-not-a-replacement
+published_at: 2026-11-26
+added_at: 2026-11-26T03:03:54Z
+updated_at: null
+status: published
+type: paper-note
+default_language: en
+
+languages:
+  - en
+  - ja
+
+tags:
+  - paper-reading
+  - pretraining
+  - multilingual
+  - data
+  - evaluation
+
+paper:
+  title: "MultiSynt/MT: Trillion-Token Multi-Parallel Pretraining Data Translated Across 36 Languages"
+  authors:
+    - Maximilian Idahl
+    - Jörg Tiedemann
+    - Sampo Pyysalo
+    - David Salinas
+    - Tomasz Galica
+    - Shenbin Qian
+    - Tudor Nicolae Mateiu
+    - Zihao Li
+    - Anna Lokrantz
+    - Fedor Vitiugin
+    - André Martins
+    - Jenna Kanerva
+    - Filip Ginter
+    - Matthias Lindemann
+    - Tim Isbister
+    - Birger Moëll
+    - Jonas Lindh
+    - Jan Hajič
+    - Jenia Jitsev
+    - Andrey Kutuzov
+    - Stephan Oepen
+    - Gema Ramírez-Sánchez
+  venue: Conference on Empirical Methods in Natural Language Processing
+  venue_short: EMNLP
+  year: 2026
+  url: https://aclanthology.org/2026.emnlp-main.2185/
+
+kicker:
+  en: Paper note
+  ja: Paper note
+
+title:
+  en: "Translated Data Is Not a Replacement: It Depends Where Your Evaluation Comes From"
+  ja: 翻訳データは代替ではない ― 評価の出自で結論が反転する
+
+summary:
+  en: >-
+    A short note on MultiSynt/MT (EMNLP 2026): translated pretraining data beats native
+    data on standard benchmarks, yet native data wins on native-authored tasks — so the
+    ranking says as much about the origin of the evaluation as about the data.
+  ja: >-
+    MultiSynt/MT（EMNLP 2026）の短いメモ。翻訳データは標準ベンチマークではネイティブを上回るが、ネイティブ由来のタスクでは逆転する。順位はデータだけでなく評価の出自をも映している。
