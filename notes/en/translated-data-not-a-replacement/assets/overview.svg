@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="832.413203pt" height="385.848pt" viewBox="0 0 832.413203 385.848" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-26T12:06:36.960210</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.6.3, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 385.848 
+L 832.413203 385.848 
+L 832.413203 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 18.36 106.992 
+L 213.66 106.992 
+L 213.66 37.692 
+L 18.36 37.692 
+L 18.36 106.992 
+z
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #333333; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 244.35 106.992 
+L 439.65 106.992 
+L 439.65 37.692 
+L 244.35 37.692 
+L 244.35 106.992 
+z
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #333333; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 470.34 106.992 
+L 665.64 106.992 
+L 665.64 37.692 
+L 470.34 37.692 
+L 470.34 106.992 
+z
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #333333; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 218.451566 72.0648 
+Q 229.00579 72.0648 238.553784 72.0648 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #333333; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 234.153784 69.8648 
+L 238.553784 72.0648 
+L 234.153784 74.2648 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #333333; stroke-width: 0.9; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 444.441566 72.0648 
+Q 454.99579 72.0648 464.543784 72.0648 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #333333; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 460.143784 69.8648 
+L 464.543784 72.0648 
+L 460.143784 74.2648 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #333333; stroke-width: 0.9; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 18.36 150.2352 
+L 665.64 150.2352 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #999999; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 18.36 177.4008 
+L 213.66 177.4008 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #333333; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 244.35 177.4008 
+L 439.65 177.4008 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #333333; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 470.34 177.4008 
+L 665.64 177.4008 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #333333; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 231.516 289.944 
+L 231.516 165.204 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #cccccc; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 457.506 289.944 
+L 457.506 165.204 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #cccccc; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 18.36 298.26 
+L 665.64 298.26 
+" clip-path="url(#paff55bac5b)" style="fill: none; stroke: #999999; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #111111; font: 700 13px 'DejaVu Sans'; text-anchor: start" x="18.36" y="22.7232" transform="rotate(-0 18.36 22.7232)">Question:  Can machine-translated data replace native data for multilingual pretraining?</text>
+   </g>
+   <g id="text_2">
+    <text style="fill: #111111; font: 700 10.5px 'DejaVu Sans'; text-anchor: middle" x="116.01" y="55.4328" transform="rotate(-0 116.01 55.4328)">Source data</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: middle" x="116.01" y="75.3912" transform="rotate(-0 116.01 75.3912)">Nemotron-CC HQ (English web text)</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: middle" x="116.01" y="92.0232" transform="rotate(-0 116.01 92.0232)">155M documents, ~100B tokens</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #111111; font: 700 10.5px 'DejaVu Sans'; text-anchor: middle" x="342" y="55.4328" transform="rotate(-0 342 55.4328)">Machine translation</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: middle" x="342" y="75.3912" transform="rotate(-0 342 75.3912)">Tower+ 9B / 72B, OPUS-MT / HPLT-MT</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: middle" x="342" y="92.0232" transform="rotate(-0 342 92.0232)">same source documents in every file</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #111111; font: 700 10.5px 'DejaVu Sans'; text-anchor: middle" x="567.99" y="55.4328" transform="rotate(-0 567.99 55.4328)">Pretraining comparison</text>
+   </g>
+   <g id="text_9">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: middle" x="567.99" y="75.3912" transform="rotate(-0 567.99 75.3912)">Released: 36 languages, ~4.8T tokens</text>
+   </g>
+   <g id="text_10">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: middle" x="567.99" y="92.0232" transform="rotate(-0 567.99 92.0232)">Evaluated: 5 European languages</text>
+   </g>
+   <g id="text_11">
+    <text style="fill: #111111; font: 700 10px 'DejaVu Sans'; text-anchor: start" x="18.36" y="122.5152" transform="rotate(-0 18.36 122.5152)">Design:</text>
+   </g>
+   <g id="text_12">
+    <text style="fill: #111111; font: 10px 'DejaVu Sans'; text-anchor: start" x="65.79" y="122.5152" transform="rotate(-0 65.79 122.5152)">translated data (MultiSynt/MT) vs. native web data (HPLT 2.0); only the training data differs,</text>
+   </g>
+   <g id="text_13">
+    <text style="fill: #111111; font: 10px 'DejaVu Sans'; text-anchor: start" x="65.79" y="138.0384" transform="rotate(-0 65.79 138.0384)">with the same 2.15B model, tokenizer and 100B-token budget.</text>
+   </g>
+   <g id="text_14">
+    <text style="fill: #111111; font: 700 10.5px 'DejaVu Sans'; text-anchor: start" x="18.36" y="169.0848" transform="rotate(-0 18.36 169.0848)">Multiple-choice benchmarks</text>
+   </g>
+   <g id="text_15">
+    <text style="fill: #111111; font: 700 9.8px 'DejaVu Sans'; text-anchor: start" x="18.36" y="194.5872" transform="rotate(-0 18.36 194.5872)">Translated  &gt;  Native</text>
+   </g>
+   <g id="text_16">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: start" x="18.36" y="216.7632" transform="rotate(-0 18.36 216.7632)">Native endpoint reached at ~28B tokens</text>
+   </g>
+   <g id="text_17">
+    <text style="fill: #111111; font: 700 9px 'DejaVu Sans'; text-anchor: start" x="18.36" y="234.504" transform="rotate(-0 18.36 234.504)">(72% fewer); +15% relative at 100B.</text>
+   </g>
+   <g id="text_18">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: start" x="18.36" y="252.2448" transform="rotate(-0 18.36 252.2448)">No difference between MT systems</text>
+   </g>
+   <g id="text_19">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: start" x="18.36" y="269.9856" transform="rotate(-0 18.36 269.9856)">is discriminated by these scores.</text>
+   </g>
+   <g id="text_20">
+    <text style="fill: #111111; font: 700 10.5px 'DejaVu Sans'; text-anchor: start" x="244.35" y="169.0848" transform="rotate(-0 244.35 169.0848)">Free-form generation</text>
+   </g>
+   <g id="text_21">
+    <text style="fill: #111111; font: 700 9.8px 'DejaVu Sans'; text-anchor: start" x="244.35" y="194.5872" transform="rotate(-0 244.35 194.5872)">Native ≥ Translated (human arena)</text>
+   </g>
+   <g id="text_22">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: start" x="244.35" y="216.7632" transform="rotate(-0 244.35 216.7632)">LLM judge, among translated variants:</text>
+   </g>
+   <g id="text_23">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: start" x="244.35" y="234.504" transform="rotate(-0 244.35 234.504)">Tower+ 72B ≥ 9B &gt; OPUS-MT.</text>
+   </g>
+   <g id="text_24">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: start" x="244.35" y="252.2448" transform="rotate(-0 244.35 252.2448)">Human arena (n = 482), against native:</text>
+   </g>
+   <g id="text_25">
+    <text style="fill: #111111; font: 700 9px 'DejaVu Sans'; text-anchor: start" x="244.35" y="269.9856" transform="rotate(-0 244.35 269.9856)">native-trained preferred in 5 of 6.</text>
+   </g>
+   <g id="text_26">
+    <text style="fill: #111111; font: 700 10.5px 'DejaVu Sans'; text-anchor: start" x="470.34" y="169.0848" transform="rotate(-0 470.34 169.0848)">Native-authored tasks (NorEval)</text>
+   </g>
+   <g id="text_27">
+    <text style="fill: #111111; font: 700 9.8px 'DejaVu Sans'; text-anchor: start" x="470.34" y="194.5872" transform="rotate(-0 470.34 194.5872)">Native  &gt;  Translated</text>
+   </g>
+   <g id="text_28">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: start" x="470.34" y="216.7632" transform="rotate(-0 470.34 216.7632)">Native data ahead throughout training</text>
+   </g>
+   <g id="text_29">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: start" x="470.34" y="234.504" transform="rotate(-0 470.34 234.504)">on Norwegian idioms and local quiz.</text>
+   </g>
+   <g id="text_30">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: start" x="470.34" y="252.2448" transform="rotate(-0 470.34 252.2448)">Localized English-origin tasks</text>
+   </g>
+   <g id="text_31">
+    <text style="fill: #555555; font: 9px 'DejaVu Sans'; text-anchor: start" x="470.34" y="269.9856" transform="rotate(-0 470.34 269.9856)">reverse the ranking.</text>
+   </g>
+   <g id="text_32">
+    <text style="fill: #111111; font: 700 11.5px 'DejaVu Sans'; text-anchor: start" x="18.36" y="316.0008" transform="rotate(-0 18.36 316.0008)">Translated pretraining data is a complement to native data, not a replacement:</text>
+   </g>
+   <g id="text_33">
+    <text style="fill: #111111; font: 11.5px 'DejaVu Sans'; text-anchor: start" x="18.36" y="334.296" transform="rotate(-0 18.36 334.296)">the ranking between the two reverses with the origin of the evaluation (translated vs. native-authored).</text>
+   </g>
+   <g id="text_34">
+    <text style="fill: #555555; font: 8.5px 'DejaVu Sans'; text-anchor: start" x="18.36" y="356.472" transform="rotate(-0 18.36 356.472)">Caveats: the benchmark gain is confounded with the higher quality of the English source, and the translation generation cost (~3.1M A100 GPU-hours) is not counted in the efficiency claim.</text>
+   </g>
+   <g id="text_35">
+    <text style="fill: #999999; font: 8px 'DejaVu Sans'; text-anchor: start" x="18.36" y="371.9952" transform="rotate(-0 18.36 371.9952)">Idahl et al., EMNLP 2026 Main. arXiv:2607.00890. Corpus released under CC0 (database).</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="paff55bac5b">
+   <rect x="7.2" y="7.2" width="669.6" height="371.448"/>
+  </clipPath>
+ </defs>
+</svg>
